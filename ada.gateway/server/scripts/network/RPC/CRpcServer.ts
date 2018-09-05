@@ -37,7 +37,7 @@ export class CRpcServer extends CSingleton
 		}
 	}
 
-	protected packetHandling(argument: object[], callback): void
+	protected async packetHandling(argument: object[], callback): Promise<void>
 	{
 		const options: object   = argument[0];
 		const commands: object  = argument[1];

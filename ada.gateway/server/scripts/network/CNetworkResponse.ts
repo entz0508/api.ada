@@ -112,7 +112,6 @@ export class CNetworkResponse implements IPoolAbleObject
 	public json(): Object
 	{
 		return {
-			[CNetworkConst.Keys.Session]            : this.m_session,
 			[CNetworkConst.Keys.DataVersion]        : this.m_version,
 			[CNetworkConst.Keys.Status]             : this.m_status,
 			[CNetworkConst.Keys.SessionRegistTime]  : this.m_sessionRegistTime,

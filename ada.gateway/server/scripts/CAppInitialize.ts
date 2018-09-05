@@ -21,7 +21,7 @@ class CAppInitialize
 		CScheduler.instance(CScheduler).schedule("NodeGC", 10, this.callGC);
 
 		// server on
-		await CRpcServer.instance(CRpcServer).connect("game", 9001);
+		// await CRpcServer.instance(CRpcServer).connect("game", 9001);
 
 		// client connect
 		CRpcClient.instance(CRpcClient).connect("game", CConfig.Env.TCP.Game.Host, CConfig.Env.TCP.Game.Port);

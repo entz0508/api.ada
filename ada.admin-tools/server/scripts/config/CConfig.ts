@@ -32,8 +32,8 @@ export class CConfig
 		}
 	}
 
-	public static isRelease(): boolean
+	public static isProduction(): boolean
 	{
-		return this.processMode === "release";
+		return this.processMode === this.Const.PRODUCTION;
 	}
 }

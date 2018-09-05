@@ -6,10 +6,6 @@ import * as logger           from "morgan";
 import * as cookieParser     from "cookie-parser";
 import * as bodyParser       from "body-parser";
 import * as methodOverride   from "method-override";
-import {CApiRoute}           from "./routes/CApiRoute";
-import {CCertificationRoute} from "./routes/auth/CCertificationRoute";
-import {CDataVersionRoute}   from "./routes/version/CDataVersionRoute";
-import {CClientVersionRoute} from "./routes/version/CClientVersionRoute";
 
 const morganBody = require("morgan-body");
 const multiparty = require("connect-multiparty");
@@ -88,21 +84,6 @@ class Server
     protected loadRoutes(): void
     {
         const router: express.Router = express.Router();
-
-	    /********************************************************************************************
-	     * version
-	     ********************************************************************************************/
-	    CDataVersionRoute.create(router);
-	    CClientVersionRoute.create(router);
-	    /********************************************************************************************
-	     * auth
-	     ********************************************************************************************/
-	    CCertificationRoute.create(router);
-	    /********************************************************************************************
-	     * command
-	     ********************************************************************************************/
-        CApiRoute.create(router);
-
         this.app.use(router);
     }
 }

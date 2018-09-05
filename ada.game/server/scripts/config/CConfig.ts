@@ -16,7 +16,7 @@ export class CConfig
 
 	public static get Env()
 	{
-		if (this.processMode === CConfig.Const.DEVELOP) {
+		if (this.processMode === this.Const.DEVELOP) {
 			return CEnvDevelop;
 		}
 		/**
@@ -24,7 +24,7 @@ export class CConfig
 		 * + QA (테스트 환경)
 		 * + Staging (운영환경과 동일한 환경 검증)
 		 */
-		else if (this.processMode === CConfig.Const.PRODUCTION) {
+		else if (this.processMode === this.Const.PRODUCTION) {
 			return CEnvProduction;
 		}
 		else {
@@ -32,8 +32,8 @@ export class CConfig
 		}
 	}
 
-	public static isRelease(): boolean
+	public static isProduction(): boolean
 	{
-		return this.processMode === "release";
+		return this.processMode === this.Const.PRODUCTION;
 	}
 }

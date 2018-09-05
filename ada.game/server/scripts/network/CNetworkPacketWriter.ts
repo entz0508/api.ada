@@ -4,21 +4,9 @@ export namespace INetworkPacketWriter
 {
 	export interface Response
 	{
-		session: string;
-		packetSequenceNo: number;
-		packetStatus: number;
-		sessionRegistTime: number;
-		sessionUpdateTime: number;
-		sessionExpireTime: number;
-		responseCommands: ResponseCommand[];
-	}
-
-	export interface ResponseCommand
-	{
-		commandSequenceNo: number;
-		packetId: number;
 		commandStatus: number;
-		resultData: Object;
+		failedMessage?: string;
+		resultData: object;
 	}
 
 	export interface GetUser

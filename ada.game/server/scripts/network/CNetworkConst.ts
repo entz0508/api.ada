@@ -85,8 +85,8 @@ export class CNetworkConst
 
 	public static PacketId = class
 	{
-		public static GetUser: number                           = 1001;
-		public static CreateUser: number                        = 1002;
+		public static GetUser: string                           = "/game/get/user";
+		public static CreateUser: string                        = "/game/create/user";
 	};
 
 	public static PacketStatus = class
