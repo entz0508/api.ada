@@ -4,6 +4,8 @@ import {IMysqlShardPoolConfig, IMysqlPoolConfig} from "../../utils/database/mysq
 
 export class CEnvDevelop
 {
+	public static SessionExpireSeconds: number  = 3000;
+
 	public static RedisMaster = class
 	{
 		public static Host: string      = "35.236.172.130";

@@ -1,37 +1,34 @@
 "use strict";
 
-import {CJson}         from "../utils/CJson";
-import {CNetworkConst} from "./CNetworkConst";
+import {CJson} from "../utils/CJson";
 
 export namespace INetworkPacketReader
 {
 	export interface Request
 	{
-		session: string;
-		dataVersion: number;
-		packetSequenceNo: number;
-		requestCommands: RequestCommand[];
+		method: string;
+		url: string;
+		uuid: number;
+		shard: number;
+
+		commands: object;
 	}
 
-	export interface RequestCommand
+	export interface Header
 	{
-		commandSequenceNo: number;
-		packetId: number;
-		parameters: Object;
+		method: string;
+		url: string;
+		uuid: number;
+		shard: number;
 	}
 
 	export interface GetUser
 	{
-
 	}
 
 	export interface CreateUser
 	{
-
 	}
-
-	// ...
-
 }
 
 export class CNetworkPacketReader
@@ -39,13 +36,14 @@ export class CNetworkPacketReader
 	/********************************************************************************************
 	 * common
 	 ********************************************************************************************/
-	public static request(request: Object): INetworkPacketReader.Request
+	public static request(header: INetworkPacketReader.Header, commands: object): INetworkPacketReader.Request
 	{
 		const results: INetworkPacketReader.Request = {
-			session             : CJson.safeStringParse( request, CNetworkConst.Keys.Session),
-			dataVersion         : CJson.safeIntegerParse(request, CNetworkConst.Keys.DataVersion),
-			packetSequenceNo    : CJson.safeIntegerParse(request, CNetworkConst.Keys.PacketSequenceNo),
-			requestCommands     : CJson.safeArrayParse(  request, CNetworkConst.Keys.RequestCommands)
+			method      : CJson.safeStringParse( header, "method"),
+			url         : CJson.safeStringParse( header, "url"),
+			uuid        : CJson.safeIntegerParse(header, "uuid"),
+			shard       : CJson.safeIntegerParse(header, "shard"),
+			commands    : commands,
 		};
 
 		return results;
@@ -54,7 +52,7 @@ export class CNetworkPacketReader
 	/********************************************************************************************
 	 * user
 	 ********************************************************************************************/
-	public static requestGetUser(request: Object): INetworkPacketReader.GetUser
+	public static requestGetUser(request: object): INetworkPacketReader.GetUser
 	{
 		const results: INetworkPacketReader.GetUser = {
 

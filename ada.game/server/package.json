@@ -44,6 +44,7 @@
 		"ip-address": "^5.8.9",
 		"ipaddr.js": "^1.8.1",
 		"jade": "^1.11.0",
+		"jsonrpc-node": "^1.2.93",
 		"jsonwebtoken": "^8.3.0",
 		"lodash": "^4.17.10",
 		"md5": "^2.2.1",

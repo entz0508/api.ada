@@ -9,7 +9,7 @@ class CAppInitialize
 	public static callGC()
 	{
 		global.gc();
-		console.log("[Total: " + process.memoryUsage().heapTotal +  "] Program is using " + process.memoryUsage().heapUsed + " bytes of Heap.");
+		// console.log("[Total: " + process.memoryUsage().heapTotal +  "] Program is using " + process.memoryUsage().heapUsed + " bytes of Heap.");
 	}
 
 	public static async load(): Promise<void>

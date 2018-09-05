@@ -5,7 +5,7 @@ import * as logger         from "morgan";
 import * as cookieParser   from "cookie-parser";
 import * as bodyParser     from "body-parser";
 import * as methodOverride from "method-override";
-import {CRouter}           from "./routes/CRouter";
+import {CGatewayRouter}    from "./routes/CGatewayRouter";
 
 const morganBody    = require("morgan-body");
 const multiparty    = require("connect-multiparty");
@@ -78,7 +78,7 @@ class Server
 	protected loadRoutes(): void
 	{
 		const router: express.Router = express.Router();
-		CRouter.create(router);
+		CGatewayRouter.create(router);
 		this.app.use(router);
 	}
 

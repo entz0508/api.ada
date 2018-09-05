@@ -3,6 +3,7 @@
 import {CQueue}          from "../structure/CQueue";
 import {IPoolAbleObject} from "./IPoolAbleObject";
 import {CConfig}         from "../../config/CConfig";
+import {CDebug}          from "../CDebug";
 
 export class CMemoryPool<T extends IPoolAbleObject>
 {
@@ -63,12 +64,12 @@ export class CMemoryPool<T extends IPoolAbleObject>
 
 	public debug(action: string, instanceName: string): void
 	{
-		if (! CConfig.isRelease()) {
+		if (! CConfig.isProduction()) {
 			if (action === "alloc") {
-				console.log("alloc [%s]", this.m_instance.name);
+				CDebug.logInfoFormat("alloc [%s]", this.m_instance.name);
 			}
 			else {
-				console.log("free  [%s]. 할당된 개수(%d), 반환된 개수(%d)", instanceName, this.m_allocCount, this.ms_pool.size());
+				CDebug.logInfoFormat("free  [%s]. 할당된 개수(%d), 반환된 개수(%d)", instanceName, this.m_allocCount, this.ms_pool.size());
 			}
 		}
 	}

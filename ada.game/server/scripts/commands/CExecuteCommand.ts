@@ -3,14 +3,13 @@
 import {CNetworkConst}                  from "../network/CNetworkConst";
 import {CGetUserCommand}                from "./api/user/CGetUserCommand";
 import {CCommand}                       from "./CCommand";
-import {CSessionModel}                  from "../models/session/CSessionModel";
 import {CSingleton}                     from "../utils/CSingleton";
 import {CCommandResult, ICommandResult} from "./CCommandResult";
 import {CCreateUserCommand}             from "./api/user/CCreateUserCommand";
 
 export class CExecuteCommand extends CSingleton
 {
-	protected m_commands: Map<number, CCommand> = new Map<number, CCommand>();
+	protected m_commands: Map<string, CCommand> = new Map<string, CCommand>();
 
 	/********************************************************************************************
 	 * release
@@ -26,28 +25,28 @@ export class CExecuteCommand extends CSingleton
 
 	protected onDestroyInstance(): void
 	{
-		this.m_commands = new Map<number, any>();
+		this.m_commands = new Map<string, any>();
 	}
 
 	/********************************************************************************************
 	 * manage
 	 ********************************************************************************************/
-	public async executeCommand(uuid: number, dbShard: string, packetId: number, session: CSessionModel, params: Object): Promise<ICommandResult>
+	public async executeCommand(packetName: string, uuid: number, shard: number, commands: object): Promise<ICommandResult>
 	{
-		const command: CCommand = this.getCommand(packetId);
+		const command: CCommand = this.getCommand(packetName);
 
 		if (command === null) {
-			return CCommandResult.failed(CNetworkConst.CommandStatus.UnknownCommand, "Unknown packet id");
+			return CCommandResult.failed(CNetworkConst.CommandStatus.UnknownCommand, `Unknown packet name. ${packetName}`);
 		}
 
-		const response: ICommandResult = await command.execute(uuid, dbShard, session, params);
+		const response: ICommandResult = await command.execute(uuid, shard, commands);
 
 		return response;
 	}
 
-	protected getCommand(packetId: number): CCommand
+	protected getCommand(packetName: string): CCommand
 	{
-		const instance: CCommand = this.m_commands.get(packetId);
+		const instance: CCommand = this.m_commands.get(packetName);
 
 		if (! instance) {
 			return null;

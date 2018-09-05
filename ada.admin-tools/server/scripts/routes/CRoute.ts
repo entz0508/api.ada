@@ -19,7 +19,7 @@ export class CRoute
 
     protected static debugRequest(request: Request): void
     {
-    	if (! CConfig.isRelease()) {
+    	if (! CConfig.isProduction()) {
 		    CDebug.logDebugFormat("------>> Date(%s)", new Date(CTime.Util.getServerTimeStamp()));
 		    CDebug.logDebugFormat("------>> Method(%s)", request.method);
 		    CDebug.logDebugFormat("------>> URL(%s%s)", request.headers.host, request.url);
@@ -34,7 +34,7 @@ export class CRoute
 
     protected static debugResponse(response: Object): void
     {
-	    if (! CConfig.isRelease()) {
+	    if (! CConfig.isProduction()) {
 		    CDebug.logDebugFormat("<<------ Response: %j", response);
 	    }
     }
