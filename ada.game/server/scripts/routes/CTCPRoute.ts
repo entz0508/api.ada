@@ -28,7 +28,7 @@ class CTCPRoute
 			response[CNetworkConst.Keys.FailedMessage] = JSONResult.failedMessage;
 		}
 
-		CDebug.logDebugFormat("------>> Response: %j", response);
+		CDebug.logDebugFormat("<<------ Response: %j", response);
 
 		callback(response);
 	}

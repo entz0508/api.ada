@@ -127,7 +127,7 @@ export class CRedisSession implements IPoolAbleObject
 
 		await this.deleteSessionBy(uuid);
 
-		const sessionGenerate: string       = Math.floor(Math.random()) + datenow + this.m_sessionSlat;
+		const sessionGenerate: string       = Math.floor(Math.random()) + uuid + datenow + this.m_sessionSlat;
 		const session: string               = sha1(sessionGenerate, {});
 		const sessionHashKey: string        = this.getSessionHashKey(session);
 		const sessionIndexKey: string       = this.getSessionIndexKey(uuid);
