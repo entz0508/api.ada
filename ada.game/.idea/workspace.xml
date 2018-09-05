@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9abfbaeb-1e1a-47b5-a05d-e42f33b0c297" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-318120039">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="2" />
+          <entry key="json" value="2" />
+          <entry key="ts" value="68" />
+          <entry key="www" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="2" />
+          <entry key="JavaScript" value="4" />
+          <entry key="TypeScript" value="68" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="json" value="33" />
+          <entry key="ts" value="851" />
+          <entry key="www" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="33" />
+          <entry key="JavaScript" value="15" />
+          <entry key="TypeScript" value="851" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="2014165227">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.3" value="3" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="TypeScriptServerServiceImpl" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="9" />
+          <entry key="json" value="3" />
+          <entry key="log" value="11" />
+          <entry key="md" value="2" />
+          <entry key="ts" value="158" />
+          <entry key="www" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="2" />
+          <entry key="JavaScript" value="12" />
+          <entry key="Log" value="10" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="TypeScript" value="158" />
+          <entry key="tsconfig" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="4" />
+          <entry key="json" value="1" />
+          <entry key="log" value="6" />
+          <entry key="ts" value="11252" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="4" />
+          <entry key="Log" value="6" />
+          <entry key="TypeScript" value="11252" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1172327121">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="1" />
+          <entry key="ts" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="1" />
+          <entry key="TypeScript" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="91" />
+          <entry key="ts" value="604" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="91" />
+          <entry key="TypeScript" value="604" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/routes/CRoute.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/network/CRequestPacket.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="604">
+              <caret line="89" column="73" selection-start-line="89" selection-start-column="73" selection-end-line="89" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/scripts/utils/pool/CMemoryPool.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/config/CConfig.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/config/environment/CDevelopEnvironment.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/config/environment/CReleaseEnvironment.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/utils/CSingleton.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/commands/CExecuteCommand.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/scripts/network/CNetworkConst.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="66" column="108" lean-forward="true" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>NxRedisConnect</find>
+      <find>NxTime</find>
+      <find>NxNetworkConst</find>
+      <find>PacketStatus</find>
+      <find>session</find>
+      <find>response</find>
+      <find>publishAsync</find>
+      <find>public static get instance()</find>
+      <find>m_pubConnect</find>
+      <find>dbShard</find>
+      <find>m_data</find>
+      <find>m_sessionExpireIntervalTime</find>
+      <find>NxQueue</find>
+      <find>NxDebug</find>
+      <find>CRequestPacket</find>
+      <find>requestCommand</find>
+      <find>packetSequenceNo</find>
+      <find>Object</find>
+      <find>request</find>
+      <find>INetworkRequest</find>
+      <find>uuid</find>
+      <find>version</find>
+      <find>uuid: string</find>
+      <find>getSessionInfoKey</find>
+      <find>getSessionHashKey</find>
+      <find>getSessionKey</find>
+      <find>getSessionHashString</find>
+      <find>getSessionString</find>
+      <find>getSessionIndexKey</find>
+      <find>CDevelopEnvironment</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>IMysqlPoolConfig</replace>
+      <replace>IMysqlShardPoolConfig</replace>
+      <replace>CExceptionCode</replace>
+      <replace>CException</replace>
+      <replace>CSchedulerConst</replace>
+      <replace>IOnUpdate</replace>
+      <replace>IEncrypted</replace>
+      <replace>IOnTimeEnded</replace>
+      <replace>CApp</replace>
+      <replace>CInitialize</replace>
+      <replace>Seconds</replace>
+      <replace>CSingleton</replace>
+      <replace>IModel</replace>
+      <replace>CJson</replace>
+      <replace>CRedisConnect</replace>
+      <replace>CTime</replace>
+      <replace>CNetworkConst</replace>
+      <replace>m_sessionExpireIntervalSeconds</replace>
+      <replace>IResponsePacket</replace>
+      <replace>CQueue</replace>
+      <replace>CDebug</replace>
+      <replace>CResponsePacket</replace>
+      <replace>responseCommand</replace>
+      <replace>object</replace>
+      <replace>IRequestPacket</replace>
+      <replace>DataVersion</replace>
+      <replace>getSessionKey</replace>
+      <replace>getSessionIndexKey</replace>
+      <replace>getSessionHashKey</replace>
+      <replace>getSessionString</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/server/scripts/utils/messaging/CFCMPush.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/security/CCrypto.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/structure/CLinkedDictionary.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/timer/CTimerTask.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/CLocalize.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/NxInitialize.ts" />
+        <option value="$PROJECT_DIR$/server/bin/www" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/time/CTime.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/config/preferences/CRelease.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/models/IModel.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/CCommandResult.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/config/preferences/CDevelop.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/CSingleton.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/database/redis/CRedisConnect.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/broadcast/CBroadcast.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/timer/CTimer.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/CAccessRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/scheduler/CScheduler.ts" />
+        <option value="$PROJECT_DIR$/server/package.json" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/CDebug.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/user/CGetUserCommand.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/config/environment/CDevelopEnvironment.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/config/environment/CReleaseEnvironment.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/CInitialize.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/CCertificationRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CNetworkRequest.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/pool/NxMemoryPool.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/database/redis/lookup/CRedisLookup.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/database/mysql/CMysqlQuery.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/database/mysql/CMysqlConnect.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/CCommand.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CRequestPacket.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/data/CClientVersionRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/data/CDataVersionRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/CApp.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CNetworkPacketReader.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/api/user/CGetUserCommand.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CNetworkPacketWriter.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/api/user/CCreateUserCommand.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CNetworkConst.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/commands/CExecuteCommand.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/pool/CMemoryPool.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/network/CResponsePacket.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/models/session/CSessionModel.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/pool/IPoolAbleObject.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/CApiRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/routes/CRoute.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/config/CConfig.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/utils/messaging/CFirebasePush.ts" />
+        <option value="$PROJECT_DIR$/server/scripts/test.js" />
+        <option value="$PROJECT_DIR$/server/scripts/test.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER">
+    <gruntfile path="$PROJECT_DIR$/server/gruntfile.js">
+      <alias-task name="default" info="Alias for &quot;clean&quot;, &quot;ts&quot;, &quot;tslint&quot; tasks." file-path="$PROJECT_DIR$/server/gruntfile.js">
+        <dependency value="clean" />
+        <dependency value="ts" />
+        <dependency value="tslint" />
+      </alias-task>
+      <core-task name="watch" info="Run predefined tasks whenever watched files change." file-path="$PROJECT_DIR$/server/node_modules/grunt-contrib-watch/tasks/watch.js" multi="false">
+        <target value="ts" />
+      </core-task>
+      <core-task name="ts" info="Compile TypeScript files" file-path="$PROJECT_DIR$/server/node_modules/grunt-ts/tasks/ts.js" multi="true">
+        <target value="app" />
+      </core-task>
+      <core-task name="tslint" info="A linter for TypeScript." file-path="$PROJECT_DIR$/server/node_modules/grunt-tslint/tasks/tslint.js" multi="true">
+        <target value="files" />
+      </core-task>
+      <core-task name="concat_sourcemap" info="Concatenate files and generate a source map." file-path="$PROJECT_DIR$/server/node_modules/grunt-concat-sourcemap/tasks/concat_sourcemap.js" multi="true">
+        <target value="target" />
+      </core-task>
+      <core-task name="clean" info="Clean files and folders." file-path="$PROJECT_DIR$/server/node_modules/grunt-contrib-clean/tasks/clean.js" multi="true">
+        <target value="folder" />
+      </core-task>
+    </gruntfile>
+  </component>
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/server/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/server/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Fashion.Game.Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fashion.Game.Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fashion.Game.Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fashion.Game.Server" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fashion.Game.Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fashion.Game.Server" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fashion.Game.Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fashion.Game.Server" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/server/logs/server-error-2018-08-13.log&#10;D:/projects/svn/Fashion in tech/Fashion.Server/server/logs/server-2018-08-13.log&#10;D:/projects/svn/Fashion in tech/Fashion.Server/server/logs/server-2018-08-14.log" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/server/node_modules/grunt-cli" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="ts.external.directory.path" value="D:\projects\svn\Fashion in tech\Fn.Server\server\node_modules\typescript\lib" />
+    <property name="typescript-compiler-editor-notification" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\commands\api\user" />
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\routes\data" />
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\utils\pool" />
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\network" />
+      <recent name="D:\projects\svn\Fashion in tech\Fn.Server\server\scripts\config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\routes\auth" />
+      <recent name="D:\projects\svn\Fashion in tech\Fashion.Server\server\scripts\commands\api" />
+      <recent name="D:\projects\svn\Fashion in tech\Fn.Server\server\scripts" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.www">
+    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/server/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$/server">
+      <envs>
+        <env name="NODE_ENV" value="develop" />
+        <env name="DEBUG" value="fashion:*" />
+      </envs>
+      <method v="2">
+        <option name="GruntBeforeRunTask" enabled="true">
+          <node-interpreter value="project" />
+          <gruntfile value="$PROJECT_DIR$/server/gruntfile.js" />
+          <tasks>
+            <task value="default" />
+          </tasks>
+          <envs />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.www" />
+      <item itemvalue="Node.js.test.js" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.www" />
+        <item itemvalue="Node.js.test.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9abfbaeb-1e1a-47b5-a05d-e42f33b0c297" name="Default Changelist" comment="" />
+      <created>1534149664074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1534149664074</updated>
+      <workItem from="1534149665327" duration="2850000" />
+      <workItem from="1534152552672" duration="9278000" />
+      <workItem from="1534164307842" duration="6233000" />
+      <workItem from="1534210856212" duration="6095000" />
+      <workItem from="1534221439219" duration="11999000" />
+      <workItem from="1534379474662" duration="7695000" />
+      <workItem from="1534389866839" duration="4315000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="48465000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26599148" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Grunt " order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33887735" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.30769232" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Key Promoter X" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>response[CNetworkConst.Keys.ResponseCommands]</expression-string>
+        <language-id>TypeScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/server/gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/logs/server-2018-08-14.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/CJson.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/logs/server-2018-08-13.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="238">
+          <caret line="97" column="111" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/wiki/http.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/wiki/packet.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/server/build/network/CNetworkPacketReader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/build/models/IModel.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/build/models/session/CSessionModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="102" column="61" lean-forward="true" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/build/config/environment/CDevelopEnvironment.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/build/config/environment/CReleaseEnvironment.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/build/routes/CApiRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="49" column="111" lean-forward="true" selection-start-line="49" selection-start-column="111" selection-end-line="49" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/database/redis/lookup/CRedisLookup.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="84" lean-forward="true" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/database/mysql/CMysqlQuery.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/CDebug.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/commands/CCommand.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/structure/CQueue.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/models/IModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/routes/data/CClientVersionRoute.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/routes/auth/CCertificationRoute.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/CApp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="89" column="56" lean-forward="true" selection-start-line="89" selection-start-column="56" selection-end-line="89" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/database/mysql/CMysql.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/routes/data/CDataVersionRoute.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/time/CTime.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="90" column="44" lean-forward="true" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/commands/CCommandResult.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/commands/api/user/CGetUserCommand.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/CInitialize.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/CNetworkPacketWriter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/commands/api/user/CCreateUserCommand.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/CResponsePacket.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/pool/IPoolAbleObject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/models/session/CSessionModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/routes/CApiRoute.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/database/mysql/CMysqlConnect.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/database/redis/CRedisConnect.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="135" column="24" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/commands/CExecuteCommand.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/CSingleton.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/CNetworkConst.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="66" column="108" lean-forward="true" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/messaging/CFirebasePush.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="177" column="26" lean-forward="true" selection-start-line="177" selection-start-column="26" selection-end-line="177" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/config/environment/CReleaseEnvironment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/config/environment/CDevelopEnvironment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/config/CConfig.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/CNetworkPacketReader.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/routes/CRoute.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/network/CRequestPacket.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="89" column="73" selection-start-line="89" selection-start-column="73" selection-end-line="89" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/scripts/utils/pool/CMemoryPool.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
