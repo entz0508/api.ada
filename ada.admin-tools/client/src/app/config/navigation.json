@@ -1,0 +1,25 @@
+{
+	"items": [
+		{
+			"title": "Site map",
+			"route": "home",
+			"icon": "fa fa-lg fa-fw fa-home"
+		},
+		{
+			"title": "Forms",
+			"icon": "fa fa-lg fa-fw fa-cloud",
+			"items": [
+				{
+					"icon": "fa fa-lg fa-fw fa-folder-open",
+					"title": "Upload",
+					"route": "/forms/dropzone"
+				},
+				{
+					"icon": "fa fa-lg fa-fw fa-folder-open",
+					"title": "Release Data",
+					"route": "/forms/release-data"
+				}
+			]
+		}
+	]
+}
