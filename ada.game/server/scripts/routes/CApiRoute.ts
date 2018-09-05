@@ -8,8 +8,8 @@ import {CSessionModel}                              from "../models/session/CSes
 import {CNetworkConst}                              from "../network/CNetworkConst";
 import {CExecuteCommand}                            from "../commands/CExecuteCommand";
 import {ICommandResult}                             from "../commands/CCommandResult";
-import {CRequestPacket, CRequestPacketPool}         from "../network/CRequestPacket";
-import {CResponsePacket, CResponsePacketPool}       from "../network/CResponsePacket";
+import {CNetworkRequest, CRequestPacketPool}        from "../network/CNetworkRequest";
+import {CNetworkResponse, CResponsePacketPool}      from "../network/CNetworkResponse";
 import {INetworkPacketWriter}                       from "../network/CNetworkPacketWriter";
 
 export class CApiRoute extends CRoute
@@ -21,7 +21,7 @@ export class CApiRoute extends CRoute
 				this.debugRequest(req);
 
 				const request: INetworkPacketReader.Request = CNetworkPacketReader.request(req.body);
-				const CRequest: CRequestPacket              = CRequestPacketPool.alloc(request.session, request.dataVersion, request.packetSequenceNo, request.requestCommands);
+				const CRequest: CNetworkRequest              = CRequestPacketPool.alloc(request.session, request.dataVersion, request.packetSequenceNo, request.requestCommands);
 
 				const isDailyReset: boolean     = true;
 				const inspection: boolean       = false;
@@ -45,7 +45,7 @@ export class CApiRoute extends CRoute
 				const CSession: CSessionModel = new CSessionModel();
 				CSession.mapping({"uuid": 1, "dbShard": "0", "session": "faef0c88c7e790314f9cedcba499dba6f820bcec", "registTime": 1534161499746, "updateTime": 1534161499746, "expireTime": 1534161499746});
 
-				const CResponse: CResponsePacket = CResponsePacketPool.alloc(CRequest.session, CSession.uuid, 0, CRequest.packetSequenceNo, CSession.registTime, CSession.updateTime, CSession.expireTime);
+				const CResponse: CNetworkResponse = CResponsePacketPool.alloc(CRequest.session, CSession.uuid, 0, CRequest.packetSequenceNo, CSession.registTime, CSession.updateTime, CSession.expireTime);
 
 				/********************************************************************************************
 				 * session check
