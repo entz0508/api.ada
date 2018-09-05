@@ -1,0 +1,34 @@
+#!/bin/sh
+
+mv	img_f_prd_btm_18phct001_L2.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_btm_18phct001_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_btm_18phct001_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_btm_18phct001_L5.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_btm_18phct001_S1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_L1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_L2.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_L5.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_one_18dfgz001_S1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18sdlt001_L1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18sdlt001_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18sdlt001_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18sdlt001_S1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18selt001_L1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18selt001_L2.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18selt001_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18selt001_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_sho_18selt001_S1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_L1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_L2.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_L5.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct001_S1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_L1.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_L2.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_L3.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_L4.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_L5.png	/data/www/api.slpplatform/public/fit
+mv	img_f_prd_top_18tsct002_S1.png	/data/www/api.slpplatform/public/fit
