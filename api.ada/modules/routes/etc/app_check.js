@@ -34,4 +34,38 @@ exports.add_routes = function(app) {
             PACKET.sendFail(req, res, ERROR_CODE_UTIL.RES_FAILED_UNKNOWN);
         }
     });
+
+    app.post("/ada/etc/check", ROUTE_MIDDLEWARE.NO_AUTH_APP, function (req, res) {
+        var API_PATH = req.route.path;
+        var CLIENT_IP = COMMON_UTIL.getClientIP(req);
+        
+        try {
+            var clientUID = COMMON_UTIL.trim(req.body.client_uid);
+            var os = COMMON_UTIL.trim(req.body.os);
+            PRINT_LOG.info(__filename, API_PATH, "api call:" + JSON.stringify(req.body));
+			PACKET.sendSuccess(req, res, null, { clientIP: CLIENT_IP });
+
+        } catch (catchErr) {
+            PRINT_LOG.setErrorLog("[" + API_PATH + "] error, [" + __filename + "]", catchErr);
+            PACKET.sendFail(req, res, ERROR_CODE_UTIL.RES_FAILED_UNKNOWN, catchErr, null);
+        }
+    });
+
+    app.post("/ada/etc/authcheck", ROUTE_MIDDLEWARE.LOGGED_IN_ACCOUNT, function (req, res) {
+        var API_PATH = req.route.path;
+        var CLIENT_IP = COMMON_UTIL.getClientIP(req);
+
+        //sendMailWelcome("moon94270@gmail.com", "ko");
+        try {
+            var clientUID = COMMON_UTIL.trim(req.body.client_uid);
+            var os = COMMON_UTIL.trim(req.body.os);
+            PRINT_LOG.info(__filename, API_PATH, "api call:" + JSON.stringify(req.body));
+            PACKET.sendSuccess(req, res, null, { clientIP: CLIENT_IP, accountID: req.body.isAccountID });
+
+        } catch (catchErr) {
+            PRINT_LOG.setErrorLog("[" + API_PATH + "] error, [" + __filename + "]", catchErr);
+            PACKET.sendFail(req, res, ERROR_CODE_UTIL.RES_FAILED_UNKNOWN, catchErr, null);
+        }
+
+    });
 };

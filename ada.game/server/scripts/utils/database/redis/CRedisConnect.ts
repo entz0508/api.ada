@@ -1,13 +1,13 @@
 "use strict";
 
-import * as redis    from "redis";
-import * as bluebird from "bluebird";
-import {CConfig}     from "../../../config/CConfig";
-import {CDebug}      from "../../CDebug";
-import {CSingleton}  from "../../CSingleton";
+import * as redis   from "redis";
+import * as _       from "bluebird";
+import {CConfig}    from "../../../config/CConfig";
+import {CDebug}     from "../../CDebug";
+import {CSingleton} from "../../CSingleton";
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
-bluebird.promisifyAll(redis.Multi.prototype);
+_.promisifyAll(redis.RedisClient.prototype);
+_.promisifyAll(redis.Multi.prototype);
 
 declare module "redis"
 {

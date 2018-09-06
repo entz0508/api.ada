@@ -13,7 +13,7 @@ const sha1 = require("sha1");
 export class CRedisSession implements IPoolAbleObject
 {
 	protected m_uuid: number            = -1;
-	protected m_dbShard: number         = -1;
+	protected m_shard: number           = -1;
 	protected m_session: string         = "";
 	protected m_registTime: number      = -1;
 	protected m_updateTime: number      = -1;
@@ -32,9 +32,9 @@ export class CRedisSession implements IPoolAbleObject
 		return this.m_uuid;
 	}
 
-	public get dbShard(): number
+	public get shard(): number
 	{
-		return this.m_dbShard;
+		return this.m_shard;
 	}
 
 	public get session(): string
@@ -60,7 +60,7 @@ export class CRedisSession implements IPoolAbleObject
 	public mapping(data: Object): void
 	{
 		this.m_uuid         = CJson.safeIntegerParse(data, "uuid", -1, false);
-		this.m_dbShard      = CJson.safeIntegerParse(data, "dbShard", -1, false);
+		this.m_shard      = CJson.safeIntegerParse(data, "shard", -1, false);
 		this.m_session      = CJson.safeStringParse( data, "session", "", false);
 		this.m_registTime   = CJson.safeIntegerParse(data, "registTime", -1, false);
 		this.m_updateTime   = CJson.safeIntegerParse(data, "updateTime", -1, false);
@@ -121,7 +121,7 @@ export class CRedisSession implements IPoolAbleObject
 	/********************************************************************************************
 	 * query.insert
 	 ********************************************************************************************/
-	public static async addSession(uuid: number, dbShard: number = -1): Promise<CRedisSession>
+	public static async addSession(uuid: number, shard: number = -1): Promise<CRedisSession>
 	{
 		const datenow: number = CTime.Util.getServerTimeStamp();
 
@@ -134,7 +134,7 @@ export class CRedisSession implements IPoolAbleObject
 
 		const sessionData: Object = {
 			"uuid"          : uuid,
-			"dbShard"       : dbShard,
+			"shard"         : shard,
 			"registTime"    : datenow,
 			"updateTime"    : datenow,
 			"expireTime"    : datenow + CConfig.Env.SessionExpireSeconds * 1000,
@@ -185,12 +185,12 @@ export class CRedisSession implements IPoolAbleObject
 
 	public onFree(): void
 	{
-		this.m_uuid            = -1;
-		this.m_dbShard         = -1;
-		this.m_session         = "";
-		this.m_registTime      = -1;
-		this.m_updateTime      = -1;
-		this.m_expireTime      = -1;
+		this.m_uuid         = -1;
+		this.m_shard        = -1;
+		this.m_session      = "";
+		this.m_registTime   = -1;
+		this.m_updateTime   = -1;
+		this.m_expireTime   = -1;
 	}
 }
 

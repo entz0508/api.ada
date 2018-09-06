@@ -51,7 +51,7 @@ export class CNetworkConst
 	     ***********************************************************************************************************/
 		public static Session: string                           = "session";
 		public static UUID: string                              = "uuid";
-		public static DBShard: string                           = "dbShard";
+		public static Shard: string                             = "shard";
 		public static DataVersion: string                       = "dataVersion";
 		public static PacketSequenceNo: string                  = "packetSequenceNo";           // 최초 네트워크 (로그인) 부터 증가 되는 값 (1부터 시작).
 

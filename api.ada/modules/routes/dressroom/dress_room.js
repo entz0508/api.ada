@@ -158,11 +158,6 @@ exports.add_routes = function (app) {
             var accountID = (req.body.isAccountID) ? req.body.isAccountID : 0;
             var requestParams = {};
             var responseOBJ = {};
-//            responseOBJ.userStat = {};
-//            
-//            responseOBJ.avatarInfo = {};
-            
-
             var failResultMsg = "error!";
 
             requestParams.req = req;
