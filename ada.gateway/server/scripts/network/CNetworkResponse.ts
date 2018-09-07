@@ -7,21 +7,22 @@ import {CNetworkConst}   from "./CNetworkConst";
 export class CNetworkResponse implements IPoolAbleObject
 {
 	protected m_uuid: number                    = -1;
+	protected m_version: number                 = -1;
 
 	protected m_token: string                   = "";
-	protected m_version: number                 = -1;
-	protected m_status: number                  = -1;
 	protected m_tokenRegistTime: number         = -1;
 	protected m_tokenUpdateTime: number         = -1;
 	protected m_tokenExpireTime: number         = -1;
-	protected m_results: Object                 = {};
 
-	public init(uuid: number, token: string, version: number, status: number = -1, registTime: number, updateTime: number, expireTime: number): boolean
+	protected m_commandStatus: number           = -1;
+	protected m_commandResult: Object           = {};
+
+	public init(uuid: number, token: string, version: number, commandStatus: number = -1, registTime: number, updateTime: number, expireTime: number): boolean
 	{
 		this.m_uuid                 = uuid;
 		this.m_token                = token;
 		this.m_version              = version;
-		this.m_status               = status;
+		this.m_commandStatus        = commandStatus;
 		this.m_tokenRegistTime      = registTime;
 		this.m_tokenUpdateTime      = updateTime;
 		this.m_tokenExpireTime      = expireTime;
@@ -59,14 +60,14 @@ export class CNetworkResponse implements IPoolAbleObject
 		this.m_version = version;
 	}
 
-	public get status(): number
+	public get commandStatus(): number
 	{
-		return this.m_status;
+		return this.m_commandStatus;
 	}
 
-	public set status(status: number)
+	public set commandStatus(commandStatus: number)
 	{
-		this.m_status = status;
+		this.m_commandStatus = commandStatus;
 	}
 
 	public get tokenRegistTime(): number
@@ -99,26 +100,27 @@ export class CNetworkResponse implements IPoolAbleObject
 		this.m_tokenExpireTime = date;
 	}
 
-	public get results(): Object
+	public get commandResult(): Object
 	{
-		return this.m_results;
+		return this.m_commandResult;
 	}
 
-	public set results(results: Object)
+	public set commandResult(commandResult: Object)
 	{
-		this.m_results = results;
+		this.m_commandResult = commandResult;
 	}
 
 	public json(): Object
 	{
 		return {
+			[CNetworkConst.Keys.UUID]               : this.m_uuid,
 			[CNetworkConst.Keys.Token]              : this.m_token,
 			[CNetworkConst.Keys.DataVersion]        : this.m_version,
-			[CNetworkConst.Keys.Status]             : this.m_status,
+			[CNetworkConst.Keys.CommandStatus]      : this.m_commandStatus,
 			[CNetworkConst.Keys.TokenRegistTime]    : this.m_tokenRegistTime,
 			[CNetworkConst.Keys.TokenUpdateTime]    : this.m_tokenUpdateTime,
 			[CNetworkConst.Keys.TokenExpireTime]    : this.m_tokenExpireTime,
-			[CNetworkConst.Keys.ResponseCommands]   : this.m_results,
+			[CNetworkConst.Keys.ResponseCommands]   : this.m_commandResult,
 		}
 	}
 
@@ -140,11 +142,11 @@ export class CNetworkResponse implements IPoolAbleObject
 		this.m_uuid                 = -1;
 		this.m_token                = "";
 		this.m_version              = -1;
-		this.m_status               = -1;
+		this.m_commandStatus               = -1;
 		this.m_tokenRegistTime      = -1;
 		this.m_tokenUpdateTime      = -1;
 		this.m_tokenExpireTime      = -1;
-		this.m_results              = [];
+		this.m_commandResult              = [];
 	}
 }
 
@@ -152,11 +154,11 @@ export class CNetworkResponsePool
 {
 	protected static ms_pool: CMemoryPool<CNetworkResponse> = new CMemoryPool<CNetworkResponse>(CNetworkResponse);
 
-	public static alloc(uuid: number = -1, token: string = "", version: number = -1, status: number = -1, registTime: number = -1, updateTime: number = -1, expireTime: number = -1): CNetworkResponse
+	public static alloc(uuid: number = -1, token: string = "", version: number = -1, commandStatus: number = -1, registTime: number = -1, updateTime: number = -1, expireTime: number = -1): CNetworkResponse
 	{
 		const instance: CNetworkResponse = this.ms_pool.alloc();
 
-		if (instance && instance.init(uuid, token, version, status, registTime, updateTime, expireTime)) {
+		if (instance && instance.init(uuid, token, version, commandStatus, registTime, updateTime, expireTime)) {
 			return instance;
 		}
 

@@ -111,11 +111,10 @@ exports.add_routes = function (app) {
 
                 }
 
-                PRINT_LOG.info(API_PATH, __filename, JSON.stringify(req.body));
-
                 if (row.RES == 0) {
                     PACKET.sendSuccess(req, res, row.MSG, {userInfo: userInfo});
                 } else {
+                    PRINT_LOG.error(API_PATH, __filename, JSON.stringify(req.body));
                     PACKET.sendFail(req, res, ERROR_CODE_UTIL.RES_FAILED_DB, row.MSG, {});
                 }
 

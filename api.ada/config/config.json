@@ -56,14 +56,14 @@
     "PATH_IS_AUTH_ACCOUNT": "ada/account/isloggedin/with"
   },
   "MYSQL_FIT_ADA_ACCOUNT": {
-    "HOST": "10.140.0.2",
+    "HOST": "localhost",
     "PORT": 16612,
     "USER": "fitadadev",
     "PASSWORD": "qmffndkzm!!!!",
     "DATABASE": "ada_account_db"
   },
   "MYSQL_FIT_ADA": {
-    "HOST": "10.140.0.2",
+    "HOST": "localhost",
     "PORT": 16612,
     "USER": "fitadadev",
     "PASSWORD": "qmffndkzm!!!!",

@@ -30,7 +30,7 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
 
                 //echo "<br/>".$wherequery;
 				$sql = 'select count(a.ACCOUNT_ID) as cnt
-							from account_tb a
+							from ada_account_db.account_tb a
 							where 1=1'.$wherequery;
                 //echo "<br/>".$sql;
 				$result = $db->query($sql);
@@ -92,8 +92,8 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
 					$currentLimit = ($onePage * $page) - $onePage;
 					$sqlLimit = ' limit ' . $currentLimit . ', ' . $onePage;
 
-					$sql = 'select ACCOUNT_ID,SIGNUP_ID,EMAIL,USERNAME,SIGNUP_PATH,PROFILE_IMAGE,DELETED,REG_DATETIME 
-                                from account_tb a 
+					$sql = 'select ACCOUNT_ID,SIGNUP_ID,SIGNUP_PATH,BLOCK,DELETED,REG_DATETIME 
+                                from ada_account_db.account_tb a 
                                 where 1=1 '. $wherequery.'
                                 order by a.REG_DATETIME desc ' . $sqlLimit;
                     //echo "<br/>".$sql;
@@ -110,10 +110,8 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                             <tr>
                                 <th>ACCOUNT_ID</th>
                                 <th>SIGNUP_ID</th>
-                                <th>EMAIL</th>
-                                <th>USERNAME</th>
                                 <th>SIGNUP_PATH</th>
-                                <th>PROFILE_IMAGE</th>
+                                <th>BLOCK</th>
 								<th>DELETED</th>
 								<th>REG_DATETIME</th>
                             </tr>
@@ -130,10 +128,8 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                             <tr>
                                 <td><?=$row['ACCOUNT_ID']?></td>
                                 <td><?=$row['SIGNUP_ID']?></td>
-                                <td><?=$row['EMAIL']?></td>
-                                <td><?=$row['USERNAME']?></td>
                                 <td><?=$row['SIGNUP_PATH']?></td>
-                                <td><?=$row['PROFILE_IMAGE']?></td>
+                                <td><?=$row['BLOCK']?></td>
 								<td><?=$row['DELETED']?></td>
 								<td><?=$row['REG_DATETIME']?></td>
                             </tr>

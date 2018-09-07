@@ -7,15 +7,15 @@ import {CNetworkConst}   from "./CNetworkConst";
 
 export class CNetworkRequest implements IPoolAbleObject
 {
-	protected m_token?: string      = "";
-	protected m_version: number     = -1;
-	protected m_commands: object    = {};
+	protected m_token?: string          = "";
+	protected m_version: number         = -1;
+	protected m_requestCommand: Object  = {};
 
 	public init(body: Object): boolean
 	{
-		this.m_token        = CJson.safeStringParse( body, CNetworkConst.Keys.Token, "", false);
-		this.m_version      = CJson.safeIntegerParse(body, CNetworkConst.Keys.DataVersion);
-		this.m_commands     = CJson.safeObjectParse( body, CNetworkConst.Keys.Commands);
+		this.m_token            = CJson.safeStringParse( body, CNetworkConst.Keys.Token, "", false);
+		this.m_version          = CJson.safeIntegerParse(body, CNetworkConst.Keys.DataVersion);
+		this.m_requestCommand   = CJson.safeObjectParse( body, CNetworkConst.Keys.RequestCommand);
 
 		return true;
 	}
@@ -30,9 +30,9 @@ export class CNetworkRequest implements IPoolAbleObject
 		return this.m_version;
 	}
 
-	public get commands(): object
+	public get requestCommand(): object
 	{
-		return this.m_commands;
+		return this.m_requestCommand;
 	}
 
 	/********************************************************************************************
@@ -50,9 +50,9 @@ export class CNetworkRequest implements IPoolAbleObject
 
 	public onFree(): void
 	{
-		this.m_token      = "";
-		this.m_version      = -1;
-		this.m_commands     = {};
+		this.m_token            = "";
+		this.m_version          = -1;
+		this.m_requestCommand   = {};
 	}
 }
 

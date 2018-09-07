@@ -5,7 +5,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2018 Fashionintech All rights
+    <strong>Copyright &copy; 2018 Fashion In Tech All rights
     reserved.
   </footer>
 

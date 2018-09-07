@@ -4,7 +4,7 @@ import {IMysqlShardPoolConfig, IMysqlPoolConfig} from "../../utils/database/mysq
 
 export class CEnvDevelop
 {
-	public static SessionExpireSeconds: number  = 3000;
+	public static SessionExpireSeconds: number = 1800;
 
 	public static RedisMaster = class
 	{

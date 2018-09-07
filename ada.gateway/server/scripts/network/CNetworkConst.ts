@@ -13,17 +13,15 @@ export class CNetworkConst
 		public static DataVersion: string                       = "version";
 		public static PacketSequenceNo: string                  = "packetSequenceNo";           // 최초 네트워크 (로그인) 부터 증가 되는 값 (1부터 시작).
 
-		public static Commands: string                          = "commands";
-		public static RequestCommands: string                   = "requestCommands";            // 패킷 번들.
+		public static RequestCommand: string                    = "requestCommand";
 		public static PacketId: string                          = "packetId";                   // 패킷 명령 아이디.
 		public static Parameters: string                        = "parameters";
 		public static CommandSequenceNo: string                 = "commandSequenceNo";          // 클라이언트 측 패킷 명령 순서.
 
-		public static Status: string                            = "status";                     // 패킷 상태.
 		public static Results: string                           = "results";                    // 패킷 결과.
 		public static ResponseCommands: string                  = "responseCommands";           // 패킷 번들 결과.
 		public static CommandStatus: string                     = "commandStatus";              // 패킷 결과 상태.
-		public static ResultData: string                        = "resultData";                 // 결과 데이터.
+		public static CommandResult: string                     = "commandResult";              // 결과 데이터.
 		public static FailedMessage: string                     = "failedMessage";              // 패킷 실패 메시지
 
 		public static UpdateTime: string                        = "updateTime";

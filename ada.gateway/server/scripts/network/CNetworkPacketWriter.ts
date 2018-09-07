@@ -9,11 +9,11 @@ export namespace INetworkPacketWriter
 	{
 		session: string;
 		version: number;
-		status: number;
+		commandStatus: number;
 		tokenRegistTime: number;
 		tokenUpdateTime: number;
 		tokenExpireTime: number;
-		results: object;
+		commandResult: object;
 	}
 }
 
@@ -24,11 +24,11 @@ export class CNetworkPacketWriter
 		const JSONData: INetworkPacketWriter.Response = {
 			"session"               : CJson.safeStringParse( response, CNetworkConst.Keys.Token),
 			"version"               : CJson.safeIntegerParse(response, CNetworkConst.Keys.DataVersion),
-			"status"                : CJson.safeIntegerParse(response, CNetworkConst.Keys.Status),
+			"commandStatus"         : CJson.safeIntegerParse(response, CNetworkConst.Keys.CommandStatus),
 			"tokenRegistTime"       : CJson.safeIntegerParse(response, CNetworkConst.Keys.TokenRegistTime),
 			"tokenUpdateTime"       : CJson.safeIntegerParse(response, CNetworkConst.Keys.TokenUpdateTime),
 			"tokenExpireTime"       : CJson.safeIntegerParse(response, CNetworkConst.Keys.TokenExpireTime),
-			"results"               : CJson.safeObjectParse( response, CNetworkConst.Keys.ResultData)
+			"commandResult"         : CJson.safeObjectParse( response, CNetworkConst.Keys.CommandResult)
 		};
 		return JSONData;
 	}

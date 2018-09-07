@@ -101,6 +101,7 @@ export class CRedisSession implements IPoolAbleObject
 		const datenow: number           = CTime.Util.getServerTimeStamp();
 		const sessionHashKey: string    = this.getSessionHashKey(token);
 		const sessionData: any          = await this.m_connect.hgetallAsync(sessionHashKey);
+
 		if (sessionData === null) {
 			return null;
 		}
@@ -114,9 +115,14 @@ export class CRedisSession implements IPoolAbleObject
 				"expireTime": datenow + CConfig.Env.SessionExpireSeconds * 1000
 			};
 
-			await this.m_connect.hmsetAsync(sessionHashKey, updateData);
-			await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
-			await this.m_connect.setexAsync(this.getSessionIndexKey(CRedisSession.uuid), CConfig.Env.SessionExpireSeconds, token);
+			await Promise.all([
+				this.m_connect.hmsetAsync(sessionHashKey, updateData),
+				this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds),
+				this.m_connect.setexAsync(this.getSessionIndexKey(CRedisSession.uuid), CConfig.Env.SessionExpireSeconds, token)
+			]);
+			// await this.m_connect.hmsetAsync(sessionHashKey, updateData);
+			// await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
+			// await this.m_connect.setexAsync(this.getSessionIndexKey(CRedisSession.uuid), CConfig.Env.SessionExpireSeconds, token);
 		}
 
 		return CRedisSession;
@@ -149,12 +155,21 @@ export class CRedisSession implements IPoolAbleObject
 			return null;
 		}
 
-		// Token 정보 저장.
-		await this.m_connect.hmsetAsync(sessionHashKey, sessionData);
-		// Token 만료시간 설정.
-		await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
-		// Token index 생성. (UUID 기준)
-		await this.m_connect.setexAsync(sessionIndexKey, CConfig.Env.SessionExpireSeconds, token);
+		await Promise.all([
+			// Token 정보 저장.
+			this.m_connect.hmsetAsync(sessionHashKey, sessionData),
+			// Token 만료시간 설정.
+			this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds),
+			// Token index 생성. (UUID 기준)
+			this.m_connect.setexAsync(sessionIndexKey, CConfig.Env.SessionExpireSeconds, token),
+		]);
+
+		// // Token 정보 저장.
+		// await this.m_connect.hmsetAsync(sessionHashKey, sessionData);
+		// // Token 만료시간 설정.
+		// await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
+		// // Token index 생성. (UUID 기준)
+		// await this.m_connect.setexAsync(sessionIndexKey, CConfig.Env.SessionExpireSeconds, token);
 
 		const instance: CRedisSession = CRedisSessionPool.alloc();
 		instance.mapping(sessionData);

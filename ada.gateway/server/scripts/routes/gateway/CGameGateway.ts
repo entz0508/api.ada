@@ -1,12 +1,13 @@
 "use strict";
 
 import {NextFunction, Request, Response, Router} from "express";
-import {CRPCClient}                              from "../../network/RPC/CRpcClient";
-import {CRedisSession, CRedisSessionPool}        from "../../utils/session/CRedisSession";
-import {CNetworkRequest, CNetworkRequestPool}    from "../../network/CNetworkRequest";
-import {CNetworkResponse, CNetworkResponsePool}  from "../../network/CNetworkResponse";
-import {CNetworkConst}                           from "../../network/CNetworkConst";
-import {CRoute}                                  from "../CRoute";
+import {CRPCClient}                             from "../../network/RPC/CRpcClient";
+import {CRedisSession, CRedisSessionPool}       from "../../utils/session/CRedisSession";
+import {CNetworkRequest, CNetworkRequestPool}   from "../../network/CNetworkRequest";
+import {CNetworkResponse, CNetworkResponsePool} from "../../network/CNetworkResponse";
+import {CNetworkConst}                          from "../../network/CNetworkConst";
+import {CRoute}                                 from "../CRoute";
+import {INetworkPacketReader}                   from "../../network/CNetworkPacketReader";
 
 export class CGameGateway extends CRoute
 {
@@ -59,8 +60,7 @@ export class CGameGateway extends CRoute
 			CResponse.tokenExpireTime       = CSession.expireTime;
 
 			if (CSession.uuid < 0) {
-				CResponse.status = CNetworkConst.PacketStatus.InvalidSession;
-
+				CResponse.commandStatus = CNetworkConst.PacketStatus.InvalidSession;
 				return this.response(CRequest, CResponse, CSession, res);
 			}
 
@@ -71,10 +71,10 @@ export class CGameGateway extends CRoute
 				"shard"     : CSession.shard
 			};
 
-			RPCSocket.call("packet", [header, CRequest.commands], (err, result) =>
+			RPCSocket.call("packet", [header, CRequest.requestCommand], (err, result: INetworkPacketReader.PacketExecuteResults) =>
 			{
-				CResponse.status    = result.commandStatus;
-				CResponse.results   = result.resultData;
+				CResponse.commandStatus = result.commandStatus;
+				CResponse.commandResult = result.commandResult;
 
 				return this.response(CRequest, CResponse, CSession, res);
 			});

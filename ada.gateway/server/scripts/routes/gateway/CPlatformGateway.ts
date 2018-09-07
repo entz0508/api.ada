@@ -6,6 +6,7 @@ import {CNetworkRequest, CNetworkRequestPool}    from "../../network/CNetworkReq
 import {CNetworkResponse, CNetworkResponsePool}  from "../../network/CNetworkResponse";
 import {CRPCClient}                              from "../../network/RPC/CRpcClient";
 import {CRedisSession, CRedisSessionPool}        from "../../utils/session/CRedisSession";
+import {INetworkPacketReader}                    from "../../network/CNetworkPacketReader";
 
 export class CPlatformGateway extends CRoute
 {
@@ -37,11 +38,11 @@ export class CPlatformGateway extends CRoute
 				"uuid"      : CSession.uuid,
 			};
 
-			RPCSocket.call("packet", [header, CRequest.commands], (err, result) =>
+			RPCSocket.call("packet", [header, CRequest.requestCommand], (err, result: INetworkPacketReader.PacketExecuteResults) =>
 	 		{
 				if (result) {
-					CResponse.status    = result.commandStatus;
-					CResponse.results   = result.resultData;
+					CResponse.commandStatus = result.commandStatus;
+					CResponse.commandResult = result.commandResult;
 				}
 
 				return this.response(CRequest, CResponse, CSession, res);

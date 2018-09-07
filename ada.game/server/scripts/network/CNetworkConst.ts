@@ -63,7 +63,7 @@ export class CNetworkConst
 		public static PacketStatus: string                      = "packetStatus";               // 패킷 상태.
 		public static ResponseCommands: string                  = "responseCommands";           // 패킷 번들 결과.
 		public static CommandStatus: string                     = "commandStatus";              // 패킷 결과 상태.
-		public static ResultData: string                        = "resultData";                 // 결과 데이터.
+		public static CommandResult: string                     = "commandResult";              // 결과 데이터.
 		public static FailedMessage: string                     = "failedMessage";              // 패킷 실패 메시지
 
 		public static UpdateTime: string                        = "updateTime";

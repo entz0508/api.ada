@@ -16,7 +16,7 @@ export class CHandlerResult
 		const commandResult: ICommandResult = {} as any;
 
 		commandResult[CNetworkConst.Keys.CommandStatus] = commandStatus;
-		commandResult[CNetworkConst.Keys.ResultData]    = resultData;
+		commandResult[CNetworkConst.Keys.CommandResult]    = resultData;
 		commandResult[CNetworkConst.Keys.FailedMessage] = failedMessage;
 
 		return commandResult;

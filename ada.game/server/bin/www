@@ -32,7 +32,7 @@ CAppInitialize.load()
 	    debug("#####                 SERVER BUILD VERSION : 2018-08-13 ~                #####");
 	    debug("##############################################################################");
 	    debug("##############################################################################");
-	    debug('Listening on port ' + port);
+	    debug('Listening on socket port ' + port);
 
 	    /**
 	     * Normalize a port into a number, string, or false.

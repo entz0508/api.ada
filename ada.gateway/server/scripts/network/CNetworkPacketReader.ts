@@ -6,7 +6,13 @@ export namespace INetworkPacketReader
 	{
 		token?: string;
 		version: number;
-		commands: object;
+		requestCommand: Object;
+	}
+
+	export interface PacketExecuteResults
+	{
+		commandStatus: number;
+		commandResult: Object;
 	}
 }
 
