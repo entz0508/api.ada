@@ -1,5 +1,5 @@
 const SmartadminConfig = {
-    host: "http://localhost:8081",
+    host: "http://localhost:8082",
 
     menu_speed: 200,
 

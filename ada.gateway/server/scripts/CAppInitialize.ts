@@ -1,8 +1,7 @@
 "use strict";
 
 import {CScheduler} from "./utils/scheduler/CScheduler";
-import {CRpcServer} from "./network/RPC/CRpcServer";
-import {CRpcClient} from "./network/RPC/CRpcClient";
+import {CRPCClient} from "./network/RPC/CRpcClient";
 import {CConfig}    from "./config/CConfig";
 
 class CAppInitialize
@@ -18,13 +17,15 @@ class CAppInitialize
 		/********************************************************************************************
 		 * scheduler
 		 ********************************************************************************************/
-		CScheduler.instance(CScheduler).schedule("NodeGC", 10, this.callGC);
+		CScheduler.instance(CScheduler).schedule("nodeGC", 10, this.callGC);
 
-		// server on
-		// await CRpcServer.instance(CRpcServer).connect("game", 9001);
+		/********************************************************************************************
+		 * tcp connect
+		 ********************************************************************************************/
+		CRPCClient.instance(CRPCClient).connect("login",    CConfig.Env.TCP.Platform.Host, CConfig.Env.TCP.Platform.Port);
+		CRPCClient.instance(CRPCClient).connect("platform", CConfig.Env.TCP.Platform.Host, CConfig.Env.TCP.Platform.Port);
+		CRPCClient.instance(CRPCClient).connect("game",     CConfig.Env.TCP.Game.Host, CConfig.Env.TCP.Game.Port);
 
-		// client connect
-		CRpcClient.instance(CRpcClient).connect("game", CConfig.Env.TCP.Game.Host, CConfig.Env.TCP.Game.Port);
 	}
 }
 

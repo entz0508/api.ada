@@ -14,7 +14,7 @@ export class CRedisSession implements IPoolAbleObject
 {
 	protected m_uuid: number            = -1;
 	protected m_shard: number           = -1;
-	protected m_session: string         = "";
+	protected m_token: string           = "";
 	protected m_registTime: number      = -1;
 	protected m_updateTime: number      = -1;
 	protected m_expireTime: number      = -1;
@@ -22,8 +22,11 @@ export class CRedisSession implements IPoolAbleObject
 	protected static m_connect: redis.RedisClient   = CRedisConnect.instance(CRedisConnect).connection();
 	protected static m_sessionSlat: string          = "aabcx0";
 
-	public init(): boolean
+	public init(uuid: number = -1, shard: number = -1, token: string = ""): boolean
 	{
+		this.m_uuid     = uuid;
+		this.m_shard    = shard;
+		this.m_token    = token;
 		return true;
 	}
 
@@ -37,9 +40,9 @@ export class CRedisSession implements IPoolAbleObject
 		return this.m_shard;
 	}
 
-	public get session(): string
+	public get token(): string
 	{
-		return this.m_session;
+		return this.m_token;
 	}
 
 	public get registTime(): number
@@ -59,9 +62,10 @@ export class CRedisSession implements IPoolAbleObject
 
 	public mapping(data: Object): void
 	{
+		this.m_token        = CJson.safeStringParse( data, "token", "", false);
 		this.m_uuid         = CJson.safeIntegerParse(data, "uuid", -1, false);
-		this.m_shard      = CJson.safeIntegerParse(data, "shard", -1, false);
-		this.m_session      = CJson.safeStringParse( data, "session", "", false);
+		this.m_shard        = CJson.safeIntegerParse(data, "shard", -1, false);
+		this.m_token        = CJson.safeStringParse( data, "token", "", false);
 		this.m_registTime   = CJson.safeIntegerParse(data, "registTime", -1, false);
 		this.m_updateTime   = CJson.safeIntegerParse(data, "updateTime", -1, false);
 		this.m_expireTime   = CJson.safeIntegerParse(data, "expireTime", -1, false);
@@ -83,7 +87,7 @@ export class CRedisSession implements IPoolAbleObject
 	/********************************************************************************************
 	 * query.select
 	 ********************************************************************************************/
-	protected static async getSessionString(uuid: number): Promise<string>
+	public static async getSessionString(uuid: number): Promise<string>
 	{
 		const session: string = await this.m_connect.getAsync(this.getSessionIndexKey(uuid));
 		if (! session) {
@@ -92,10 +96,10 @@ export class CRedisSession implements IPoolAbleObject
 		return session;
 	}
 
-	public static async getSession(session: string, isTTLUpdate: boolean = true): Promise<CRedisSession>
+	public static async getSession(token: string, isTTLUpdate: boolean = true): Promise<CRedisSession>
 	{
 		const datenow: number           = CTime.Util.getServerTimeStamp();
-		const sessionHashKey: string    = this.getSessionHashKey(session);
+		const sessionHashKey: string    = this.getSessionHashKey(token);
 		const sessionData: any          = await this.m_connect.hgetallAsync(sessionHashKey);
 		if (sessionData === null) {
 			return null;
@@ -112,7 +116,7 @@ export class CRedisSession implements IPoolAbleObject
 
 			await this.m_connect.hmsetAsync(sessionHashKey, updateData);
 			await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
-			await this.m_connect.setexAsync(this.getSessionIndexKey(CRedisSession.uuid), CConfig.Env.SessionExpireSeconds, session);
+			await this.m_connect.setexAsync(this.getSessionIndexKey(CRedisSession.uuid), CConfig.Env.SessionExpireSeconds, token);
 		}
 
 		return CRedisSession;
@@ -127,12 +131,13 @@ export class CRedisSession implements IPoolAbleObject
 
 		await this.deleteSessionBy(uuid);
 
-		const sessionGenerate: string       = Math.floor(Math.random()) + uuid + datenow + this.m_sessionSlat;
-		const session: string               = sha1(sessionGenerate, {});
-		const sessionHashKey: string        = this.getSessionHashKey(session);
+		const tokenGenerate: string       = Math.floor(Math.random()) + uuid + datenow + this.m_sessionSlat;
+		const token: string               = sha1(tokenGenerate, {});
+		const sessionHashKey: string        = this.getSessionHashKey(token);
 		const sessionIndexKey: string       = this.getSessionIndexKey(uuid);
 
 		const sessionData: Object = {
+			"token"         : token,
 			"uuid"          : uuid,
 			"shard"         : shard,
 			"registTime"    : datenow,
@@ -144,12 +149,12 @@ export class CRedisSession implements IPoolAbleObject
 			return null;
 		}
 
-		// Session 정보 저장.
+		// Token 정보 저장.
 		await this.m_connect.hmsetAsync(sessionHashKey, sessionData);
-		// Session 만료시간 설정.
+		// Token 만료시간 설정.
 		await this.m_connect.expireAsync(sessionHashKey, CConfig.Env.SessionExpireSeconds);
-		// Session index 생성. (UUID 기준)
-		await this.m_connect.setexAsync(sessionIndexKey, CConfig.Env.SessionExpireSeconds, session);
+		// Token index 생성. (UUID 기준)
+		await this.m_connect.setexAsync(sessionIndexKey, CConfig.Env.SessionExpireSeconds, token);
 
 		const instance: CRedisSession = CRedisSessionPool.alloc();
 		instance.mapping(sessionData);
@@ -187,7 +192,7 @@ export class CRedisSession implements IPoolAbleObject
 	{
 		this.m_uuid         = -1;
 		this.m_shard        = -1;
-		this.m_session      = "";
+		this.m_token        = "";
 		this.m_registTime   = -1;
 		this.m_updateTime   = -1;
 		this.m_expireTime   = -1;
@@ -198,11 +203,11 @@ export class CRedisSessionPool
 {
 	protected static ms_pool: CMemoryPool<CRedisSession> = new CMemoryPool<CRedisSession>(CRedisSession);
 
-	public static alloc(): CRedisSession
+	public static alloc(uuid: number = -1, shard: number = -1, token: string = ""): CRedisSession
 	{
 		const instance: CRedisSession = this.ms_pool.alloc();
 
-		if (instance && instance.init()) {
+		if (instance && instance.init(uuid, shard, token)) {
 			return instance;
 		}
 

@@ -1,12 +1,12 @@
 "use strict";
 
-import {NextFunction, Request, Response, Router}      from "express";
-import {CRpcClient}                                   from "../../network/RPC/CRpcClient";
-import {CRedisSession, CRedisSessionPool}             from "../../utils/session/CRedisSession";
-import {CNetworkRequest, CNetworkRequestPacketPool}   from "../../network/CNetworkRequest";
-import {CNetworkResponse, CNetworkResponsePacketPool} from "../../network/CNetworkResponse";
-import {CNetworkConst}                                from "../../network/CNetworkConst";
-import {CRoute}                                       from "../CRoute";
+import {NextFunction, Request, Response, Router} from "express";
+import {CRPCClient}                              from "../../network/RPC/CRpcClient";
+import {CRedisSession, CRedisSessionPool}        from "../../utils/session/CRedisSession";
+import {CNetworkRequest, CNetworkRequestPool}    from "../../network/CNetworkRequest";
+import {CNetworkResponse, CNetworkResponsePool}  from "../../network/CNetworkResponse";
+import {CNetworkConst}                           from "../../network/CNetworkConst";
+import {CRoute}                                  from "../CRoute";
 
 export class CGameGateway extends CRoute
 {
@@ -37,10 +37,10 @@ export class CGameGateway extends CRoute
 		router.post("/game/*", async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 			this.debugRequest(req);
 
-			const CRequest: CNetworkRequest   = CNetworkRequestPacketPool.alloc(req.body);
-			const CResponse: CNetworkResponse = CNetworkResponsePacketPool.alloc();
+			const CRequest: CNetworkRequest   = CNetworkRequestPool.alloc(req.body);
+			const CResponse: CNetworkResponse = CNetworkResponsePool.alloc();
 
-			const RPCSocket: any = CRpcClient.instance(CRpcClient).socket("game");
+			const RPCSocket: any = CRPCClient.instance(CRPCClient).socket("game");
 
 			/********************************************************************************************
 			 * version
@@ -50,25 +50,25 @@ export class CGameGateway extends CRoute
 			 * session
 			 ********************************************************************************************/
 			const CSession: CRedisSession = CRedisSessionPool.alloc();
-			CSession.mapping({"uuid": 100000000, "dbShard": 0, "session": "faef0c88c7e790314f9cedcba499dba6f820bcec", "registTime": 1534161499746, "updateTime": 1534161499746, "expireTime": 1534161499746});
+			CSession.mapping({"uuid": 100000000, "shard": 0, "session": "faef0c88c7e790314f9cedcba499dba6f820bcec", "registTime": 1534161499746, "updateTime": 1534161499746, "expireTime": 1534161499746});
 
 			CResponse.version               = 0;
 			CResponse.uuid                  = CSession.uuid;
-			CResponse.sessionRegistTime     = CSession.registTime;
-			CResponse.sessionUpdateTime     = CSession.updateTime;
-			CResponse.sessionExpireTime     = CSession.expireTime;
+			CResponse.tokenRegistTime       = CSession.registTime;
+			CResponse.tokenUpdateTime       = CSession.updateTime;
+			CResponse.tokenExpireTime       = CSession.expireTime;
 
 			if (CSession.uuid < 0) {
 				CResponse.status = CNetworkConst.PacketStatus.InvalidSession;
 
-				return this.response(CSession, CRequest, CResponse, res);
+				return this.response(CRequest, CResponse, CSession, res);
 			}
 
 			const header: object = {
 				"method"    : req.method,
 				"url"       : req.originalUrl,
 				"uuid"      : CSession.uuid,
-				"shard"     : CSession.dbShard
+				"shard"     : CSession.shard
 			};
 
 			RPCSocket.call("packet", [header, CRequest.commands], (err, result) =>
@@ -76,7 +76,7 @@ export class CGameGateway extends CRoute
 				CResponse.status    = result.commandStatus;
 				CResponse.results   = result.resultData;
 
-				return this.response(CSession, CRequest, CResponse, res);
+				return this.response(CRequest, CResponse, CSession, res);
 			});
 		});
 	};

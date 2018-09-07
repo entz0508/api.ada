@@ -56,13 +56,13 @@ export class CDataVersionRoute extends CRoute
 					if (CJsonReleaseVersion === null) {
 						CJsonReleaseVersion = CJsonReleaseVersionDataPool.alloc(
 							versionCode,
-							CJsonReleaseVersionData.makeUrl(CConfig.Environment.Path.DownloadURL, CConfig.Environment.Path.CDNSavePath, versionCode)
+							CJsonReleaseVersionData.makeUrl(CConfig.Env.Path.DownloadURL, CConfig.Env.Path.CDNSavePath, versionCode)
 						);
 						queries.push(CJsonReleaseVersionData.createQuery(CJsonReleaseVersion));
 					}
 					else if (CJsonReleaseVersion !== null && versionCode !== CJsonReleaseVersion.versionCode) {
 						CJsonReleaseVersion.versionCode = CJsonVersion.versionCode;
-						CJsonReleaseVersion.url         = CJsonReleaseVersionData.makeUrl(CConfig.Environment.Path.DownloadURL, CConfig.Environment.Path.CDNSavePath, versionCode);
+						CJsonReleaseVersion.url         = CJsonReleaseVersionData.makeUrl(CConfig.Env.Path.DownloadURL, CConfig.Env.Path.CDNSavePath, versionCode);
 						queries.push(CJsonReleaseVersionData.updateQuery(CJsonReleaseVersion));
 					}
 					else {

@@ -7,7 +7,7 @@ import * as bodyParser     from "body-parser";
 import * as methodOverride from "method-override";
 import {CGameGateway}      from "./routes/gateway/CGameGateway";
 import {CPlatformGateway}  from "./routes/gateway/CPlatformGateway";
-import {CLoginGateway}     from "./routes/gateway/CLoginGateway";
+import {CAuthGateway}      from "./routes/gateway/CAuthGateway";
 
 const morganBody    = require("morgan-body");
 const multiparty    = require("connect-multiparty");
@@ -80,7 +80,7 @@ class Server
 	protected loadRoutes(): void
 	{
 		const router: express.Router = express.Router();
-		CLoginGateway.create(router);
+		CAuthGateway.create(router);
 		CGameGateway.create(router);
 		CPlatformGateway.create(router);
 		this.app.use(router);

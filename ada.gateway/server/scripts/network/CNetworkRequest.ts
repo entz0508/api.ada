@@ -1,29 +1,28 @@
 "use strict";
 
-import {IPoolAbleObject}                            from "../utils/pool/IPoolAbleObject";
-import {CMemoryPool}                                from "../utils/pool/CMemoryPool";
-import {CNetworkPacketReader, INetworkPacketReader} from "./CNetworkPacketReader";
+import {IPoolAbleObject} from "../utils/pool/IPoolAbleObject";
+import {CMemoryPool}     from "../utils/pool/CMemoryPool";
+import {CJson}           from "../utils/CJson";
+import {CNetworkConst}   from "./CNetworkConst";
 
 export class CNetworkRequest implements IPoolAbleObject
 {
-	protected m_session: string     = "";
+	protected m_token?: string      = "";
 	protected m_version: number     = -1;
 	protected m_commands: object    = {};
 
 	public init(body: Object): boolean
 	{
-		const request: INetworkPacketReader.Request = CNetworkPacketReader.Request(body);
-
-		this.m_session      = request.session;
-		this.m_version      = request.version;
-		this.m_commands     = request.commands;
+		this.m_token        = CJson.safeStringParse( body, CNetworkConst.Keys.Token, "", false);
+		this.m_version      = CJson.safeIntegerParse(body, CNetworkConst.Keys.DataVersion);
+		this.m_commands     = CJson.safeObjectParse( body, CNetworkConst.Keys.Commands);
 
 		return true;
 	}
 
-	public get session(): string
+	public get token(): string
 	{
-		return this.m_session;
+		return this.m_token;
 	}
 
 	public get version(): number
@@ -41,7 +40,7 @@ export class CNetworkRequest implements IPoolAbleObject
 	 ********************************************************************************************/
 	public release(): void
 	{
-		CNetworkRequestPacketPool.free(this);
+		CNetworkRequestPool.free(this);
 	}
 
 	public onAlloc(): void
@@ -51,13 +50,13 @@ export class CNetworkRequest implements IPoolAbleObject
 
 	public onFree(): void
 	{
-		this.m_session      = "";
+		this.m_token      = "";
 		this.m_version      = -1;
 		this.m_commands     = {};
 	}
 }
 
-export class CNetworkRequestPacketPool
+export class CNetworkRequestPool
 {
 	protected static ms_pool: CMemoryPool<CNetworkRequest> = new CMemoryPool<CNetworkRequest>(CNetworkRequest);
 

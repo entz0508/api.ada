@@ -43,8 +43,7 @@ exports.add_routes = function(app) {
             var clientUID = COMMON_UTIL.trim(req.body.client_uid);
             var os = COMMON_UTIL.trim(req.body.os);
             PRINT_LOG.info(__filename, API_PATH, "api call:" + JSON.stringify(req.body));
-			PACKET.sendSuccess(req, res, null, { clientIP: CLIENT_IP });
-
+			PACKET.sendSuccess(req, res, null, { clientIP: CLIENT_IP, serverName : req.hostname, ServerIp : COMMON_UTIL.getServerIp(req) });
         } catch (catchErr) {
             PRINT_LOG.setErrorLog("[" + API_PATH + "] error, [" + __filename + "]", catchErr);
             PACKET.sendFail(req, res, ERROR_CODE_UTIL.RES_FAILED_UNKNOWN, catchErr, null);

@@ -66,10 +66,10 @@ export class CMemoryPool<T extends IPoolAbleObject>
 	{
 		if (! CConfig.isProduction()) {
 			if (action === "alloc") {
-				CDebug.logInfoFormat("alloc [%s]", this.m_instance.name);
+				console.log("alloc [%s]", this.m_instance.name);
 			}
 			else {
-				CDebug.logInfoFormat("free  [%s]. 할당된 개수(%d), 반환된 개수(%d)", instanceName, this.m_allocCount, this.ms_pool.size());
+				console.log("free  [%s]. 할당된 개수(%d), 반환된 개수(%d)", instanceName, this.m_allocCount, this.ms_pool.size());
 			}
 		}
 	}

@@ -223,7 +223,7 @@ export default class Dropzone extends React.Component
 									<div className="widget-body no-padding" id="Test">
 
 										<Datatable options={{
-											ajax: "http://localhost:8081/data/upload/json",
+											ajax: "http://localhost:8082/data/upload/json",
 											columns: [
 												{data: "action"},
 												{data: "versionCode"},

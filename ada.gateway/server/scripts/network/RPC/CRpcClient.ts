@@ -5,7 +5,7 @@ import {CDebug}     from "../../utils/CDebug";
 
 const RPCClient = require("jsonrpc-node").TCP.Client;
 
-export class CRpcClient extends CSingleton
+export class CRPCClient extends CSingleton
 {
 	protected m_socket: Object = {};
 

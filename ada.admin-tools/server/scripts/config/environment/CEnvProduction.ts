@@ -4,6 +4,8 @@ import {IMysqlShardPoolConfig, IMysqlPoolConfig} from "../../utils/database/mysq
 
 export class CEnvProduction
 {
+	public static SessionExpireSeconds: number  = 3000;
+
 	public static Path = class
 	{
 		public static JSONSavePath: string      = "/service/temp/upload/json";

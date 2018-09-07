@@ -7,9 +7,9 @@ export class CNetworkConst
 		/***********************************************************************************************************
 		 * common
 		 ***********************************************************************************************************/
-		public static Session: string                           = "session";
+		public static Token: string                             = "token";
 		public static UUID: string                              = "uuid";
-		public static DBShard: string                           = "dbShard";
+		public static DBShard: string                           = "shard";
 		public static DataVersion: string                       = "version";
 		public static PacketSequenceNo: string                  = "packetSequenceNo";           // 최초 네트워크 (로그인) 부터 증가 되는 값 (1부터 시작).
 
@@ -33,9 +33,9 @@ export class CNetworkConst
 		/***********************************************************************************************************
 		 * session
 		 ***********************************************************************************************************/
-		public static SessionRegistTime: string                 = "sessionRegistTime";
-		public static SessionUpdateTime: string                 = "sessionUpdateTime";
-		public static SessionExpireTime: string                 = "sessionExpireTime";
+		public static TokenRegistTime: string                   = "tokenRegistTime";
+		public static TokenUpdateTime: string                   = "tokenUpdateTime";
+		public static TokenExpireTime: string                   = "tokenExpireTime";
 	};
 
 	public static PacketStatus = class

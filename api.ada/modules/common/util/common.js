@@ -137,6 +137,11 @@ var getFileUrlPath = function (accoutID, fileName) {
         + ('' + accoutID).slice(-2) + "/" + ('' + accoutID).slice(-4) + "/" + accoutID + "/" + fileName : "";
 };
 
+var getServerIp = function getServerIp(req) {
+    var values = req.hostname;
+    return values.length ? values : '0.0.0.0';
+}
+
 var getClientIP = function (req) {
     if (!isNull(req.headers['x-forwarded-for'])) return req.headers['x-forwarded-for'];
     if (!isNull(req._remoteAddress)) return req._remoteAddress;
@@ -326,5 +331,6 @@ module.exports = {
     convertDateToDateString: convertDateToDateString,
     convertDatetimeToUnixtimestamp: convertDatetimeToUnixtimestamp,
     convertDatetimeToUnixtimestampLong: convertDatetimeToUnixtimestampLong,
-    getFileUrlPath: getFileUrlPath
+    getFileUrlPath: getFileUrlPath,
+    getServerIp: getServerIp
 };

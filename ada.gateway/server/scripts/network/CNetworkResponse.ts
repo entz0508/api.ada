@@ -8,23 +8,23 @@ export class CNetworkResponse implements IPoolAbleObject
 {
 	protected m_uuid: number                    = -1;
 
-	protected m_session: string                 = "";
+	protected m_token: string                   = "";
 	protected m_version: number                 = -1;
 	protected m_status: number                  = -1;
-	protected m_sessionRegistTime: number       = -1;
-	protected m_sessionUpdateTime: number       = -1;
-	protected m_sessionExpireTime: number       = -1;
+	protected m_tokenRegistTime: number         = -1;
+	protected m_tokenUpdateTime: number         = -1;
+	protected m_tokenExpireTime: number         = -1;
 	protected m_results: Object                 = {};
 
-	public init(uuid: number, session: string, version: number, status: number = -1, registTime: number, updateTime: number, expireTime: number): boolean
+	public init(uuid: number, token: string, version: number, status: number = -1, registTime: number, updateTime: number, expireTime: number): boolean
 	{
 		this.m_uuid                 = uuid;
-		this.m_session              = session;
+		this.m_token                = token;
 		this.m_version              = version;
 		this.m_status               = status;
-		this.m_sessionRegistTime    = registTime;
-		this.m_sessionUpdateTime    = updateTime;
-		this.m_sessionExpireTime    = expireTime;
+		this.m_tokenRegistTime      = registTime;
+		this.m_tokenUpdateTime      = updateTime;
+		this.m_tokenExpireTime      = expireTime;
 
 		return true;
 	}
@@ -39,14 +39,14 @@ export class CNetworkResponse implements IPoolAbleObject
 		this.m_uuid = uuid;
 	}
 
-	public get session(): string
+	public get token(): string
 	{
-		return this.m_session;
+		return this.m_token;
 	}
 
-	public set session(session: string)
+	public set token(m_token: string)
 	{
-		this.m_session = session;
+		this.m_token = m_token;
 	}
 
 	public get version(): number
@@ -69,34 +69,34 @@ export class CNetworkResponse implements IPoolAbleObject
 		this.m_status = status;
 	}
 
-	public get sessionRegistTime(): number
+	public get tokenRegistTime(): number
 	{
-		return this.m_sessionRegistTime;
+		return this.m_tokenRegistTime;
 	}
 
-	public set sessionRegistTime(date: number)
+	public set tokenRegistTime(date: number)
 	{
-		this.m_sessionRegistTime = date;
+		this.m_tokenRegistTime = date;
 	}
 
-	public get sessionUpdateTime(): number
+	public get tokenUpdateTime(): number
 	{
-		return this.m_sessionUpdateTime;
+		return this.m_tokenUpdateTime;
 	}
 
-	public set sessionUpdateTime(date: number)
+	public set tokenUpdateTime(date: number)
 	{
-		this.m_sessionUpdateTime = date;
+		this.m_tokenUpdateTime = date;
 	}
 
-	public get sessionExpireTime(): number
+	public get tokenExpireTime(): number
 	{
-		return this.m_sessionExpireTime;
+		return this.m_tokenExpireTime;
 	}
 
-	public set sessionExpireTime(date: number)
+	public set tokenExpireTime(date: number)
 	{
-		this.m_sessionExpireTime = date;
+		this.m_tokenExpireTime = date;
 	}
 
 	public get results(): Object
@@ -112,11 +112,12 @@ export class CNetworkResponse implements IPoolAbleObject
 	public json(): Object
 	{
 		return {
+			[CNetworkConst.Keys.Token]              : this.m_token,
 			[CNetworkConst.Keys.DataVersion]        : this.m_version,
 			[CNetworkConst.Keys.Status]             : this.m_status,
-			[CNetworkConst.Keys.SessionRegistTime]  : this.m_sessionRegistTime,
-			[CNetworkConst.Keys.SessionUpdateTime]  : this.m_sessionUpdateTime,
-			[CNetworkConst.Keys.SessionExpireTime]  : this.m_sessionExpireTime,
+			[CNetworkConst.Keys.TokenRegistTime]    : this.m_tokenRegistTime,
+			[CNetworkConst.Keys.TokenUpdateTime]    : this.m_tokenUpdateTime,
+			[CNetworkConst.Keys.TokenExpireTime]    : this.m_tokenExpireTime,
 			[CNetworkConst.Keys.ResponseCommands]   : this.m_results,
 		}
 	}
@@ -126,7 +127,7 @@ export class CNetworkResponse implements IPoolAbleObject
 	 ********************************************************************************************/
 	public release(): void
 	{
-		CNetworkResponsePacketPool.free(this);
+		CNetworkResponsePool.free(this);
 	}
 
 	public onAlloc(): void
@@ -137,25 +138,25 @@ export class CNetworkResponse implements IPoolAbleObject
 	public onFree(): void
 	{
 		this.m_uuid                 = -1;
-		this.m_session              = "";
+		this.m_token                = "";
 		this.m_version              = -1;
 		this.m_status               = -1;
-		this.m_sessionRegistTime    = -1;
-		this.m_sessionUpdateTime    = -1;
-		this.m_sessionExpireTime    = -1;
+		this.m_tokenRegistTime      = -1;
+		this.m_tokenUpdateTime      = -1;
+		this.m_tokenExpireTime      = -1;
 		this.m_results              = [];
 	}
 }
 
-export class CNetworkResponsePacketPool
+export class CNetworkResponsePool
 {
 	protected static ms_pool: CMemoryPool<CNetworkResponse> = new CMemoryPool<CNetworkResponse>(CNetworkResponse);
 
-	public static alloc(uuid: number = -1, session: string = "", version: number = -1, status: number = -1, registTime: number = -1, updateTime: number = -1, expireTime: number = -1): CNetworkResponse
+	public static alloc(uuid: number = -1, token: string = "", version: number = -1, status: number = -1, registTime: number = -1, updateTime: number = -1, expireTime: number = -1): CNetworkResponse
 	{
 		const instance: CNetworkResponse = this.ms_pool.alloc();
 
-		if (instance && instance.init(uuid, session, version, status, registTime, updateTime, expireTime)) {
+		if (instance && instance.init(uuid, token, version, status, registTime, updateTime, expireTime)) {
 			return instance;
 		}
 

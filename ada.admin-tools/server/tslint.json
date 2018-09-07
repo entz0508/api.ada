@@ -51,9 +51,9 @@
 //				"variable-declaration": "onespace"
 //			}
 //		],
-		"no-internal-module": true,
-		"no-trailing-whitespace": true,
-		"no-null-keyword": false
+//		"no-internal-module": true,
+//		"no-trailing-whitespace": true,
+//		"no-null-keyword": false
 //		"prefer-const": true
 //		"jsdoc-format": true
 	}
