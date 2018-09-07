@@ -25,7 +25,7 @@ $path2 = get_dirname(4);
               </a>
               <ul class="treeview-menu">
                   <li <?=($path2 == "users.html")?"class=\"active\"":"" ?>><a href="/pages/account/users.html"><i class="fa fa-circle-o"></i> 회원검색</a></li>
-				  <li <?=($path2 == "usersDrop.html")?"class=\"active\"":"" ?>><a href="/pages/account/usersDrop.html"><i class="fa fa-circle-o"></i> 탈퇴회원조회</a></li>
+				  <li <?=($path2 == "usersDrop.html")?"class=\"active\"":"" ?>><a href="javascript:;" onclick="javascript:alert('준비중입니다.');"><i class="fa fa-circle-o"></i> 탈퇴회원조회</a></li>
               </ul>
           </li>
 

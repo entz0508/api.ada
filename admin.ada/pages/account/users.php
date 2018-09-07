@@ -19,19 +19,25 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                 $wherequery = null;
                 if(isset($_GET["sv"])) {
                     switch ($_GET["st"]) {
-                        case "SIGNUP_ID" : $wherequery = " and SIGNUP_ID like \"%".$_GET["sv"]."%\""; break;	// 로그인이메일
-						case "USERNAME" : $wherequery = " and USERNAME like \"%".$_GET["sv"]."%\""; break;		// 이름
-						case "ACCOUNT_ID" : $wherequery = " and ACCOUNT_ID=".$_GET["sv"].""; break;				// 회원번호
-						case "EMAIL" : $wherequery = " and EMAIL like \"%".$_GET["sv"]."%\""; break;			// 인증이메일
+                        case "SIGNUP_ID" : $wherequery = " and ac.SIGNUP_ID like \"%".$_GET["sv"]."%\""; break;	    // SIGNUP_ID
+						case "NICKNAME" : $wherequery = " and pt.NICKNAME like \"%".$_GET["sv"]."%\""; break;		// 닉네임
+						case "ACCOUNT_ID" : $wherequery = " and ac.ACCOUNT_ID=".$_GET["sv"].""; break;				// 회원번호
                         default : $wherequery = ""; break;
                     }
                     //$wherequery = " and ".$_GET["st"]."=\"".$_GET["sv"]."\"";
                 }
 
                 //echo "<br/>".$wherequery;
+
+                $sql = 'SELECT count(ac.ACCOUNT_ID) as cnt
+                    FROM ada_account_db.account_tb ac
+                    inner join ada_account_db.profile_tb pt on ac.ACCOUNT_ID = pt.ACCOUNT_ID
+                    where 1=1'.$wherequery;
+                /*
 				$sql = 'select count(a.ACCOUNT_ID) as cnt
-							from ada_account_db.account_tb a
-							where 1=1'.$wherequery;
+                            from ada_account_db.account_tb a
+                            where 1=1'.$wherequery;
+                */
                 //echo "<br/>".$sql;
 				$result = $db->query($sql);
 				$row = $result->fetch_assoc();
@@ -92,10 +98,22 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
 					$currentLimit = ($onePage * $page) - $onePage;
 					$sqlLimit = ' limit ' . $currentLimit . ', ' . $onePage;
 
+
+                    $sql = 'SELECT ac.ACCOUNT_ID, ac.SIGNUP_PATH, ac.SIGNUP_ID, ac.BLOCK, ac.DELETED, ac.REG_DATETIME 
+                        ,pt.NICKNAME
+                        ,case when pt.GENDER = 1 then 1 else 2 end as GENDER		-- ,pt.GENDER
+                        ,pt.COUNTRY,pt.AGE
+                    FROM ada_account_db.account_tb ac
+                    inner join ada_account_db.profile_tb pt on ac.ACCOUNT_ID = pt.ACCOUNT_ID
+                    where 1=1 '. $wherequery.'
+                                order by ac.REG_DATETIME desc ' . $sqlLimit;
+
+                    /*
 					$sql = 'select ACCOUNT_ID,SIGNUP_ID,SIGNUP_PATH,BLOCK,DELETED,REG_DATETIME 
                                 from ada_account_db.account_tb a 
                                 where 1=1 '. $wherequery.'
                                 order by a.REG_DATETIME desc ' . $sqlLimit;
+                    */
                     //echo "<br/>".$sql;
 					$result = $db->query($sql);
 				}
@@ -109,11 +127,15 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                         <tbody>
                             <tr>
                                 <th>ACCOUNT_ID</th>
+                                <th>NICKNAME</th>
                                 <th>SIGNUP_ID</th>
                                 <th>SIGNUP_PATH</th>
+                                <th>GENDER</th>
+                                <th>COUNTRY</th>
+                                <th>AGE</th>
                                 <th>BLOCK</th>
 								<th>DELETED</th>
-								<th>REG_DATETIME</th>
+                                <th>REG_DATETIME</th>
                             </tr>
                             <?
                             if($allPost <= 0)
@@ -127,8 +149,12 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                             ?>
                             <tr>
                                 <td><?=$row['ACCOUNT_ID']?></td>
+                                <td><?=$row['NICKNAME']?></td>
                                 <td><?=$row['SIGNUP_ID']?></td>
                                 <td><?=$row['SIGNUP_PATH']?></td>
+                                <td><?=$row['GENDER']?></td>
+                                <td><?=$row['COUNTRY']?></td>
+                                <td><?=$row['AGE']?></td>
                                 <td><?=$row['BLOCK']?></td>
 								<td><?=$row['DELETED']?></td>
 								<td><?=$row['REG_DATETIME']?></td>
