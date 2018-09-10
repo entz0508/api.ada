@@ -16,12 +16,11 @@ export class CFirebasePush extends CSingleton
 	protected onInstantiate(): void
 	{
 		this.m_FCMInstance = new FCMPush(CConfig.Env.Google.webAPIKey);
-	};
+	}
 
 	protected onDestroyInstance(): void
 	{
-
-	};
+	}
 
 	/**
 	 * https://firebase.google.com/docs/cloud-messaging/http-server-ref?hl=ko

@@ -43,21 +43,19 @@ export class CMysqlConnect extends CSingleton
 	/********************************************************************************************
 	 * game
 	 ********************************************************************************************/
-	protected m_useMaster       : promiseMysql.Pool		= null;
-	protected m_userSlave       : promiseMysql.Pool		= null;
+	protected m_useMaster       : Map<number, promiseMysql.Pool>	= new Map<number, promiseMysql.Pool>();
+	protected m_userSlave       : Map<number, promiseMysql.Pool>    = new Map<number, promiseMysql.Pool>();
 
 	/********************************************************************************************
 	 * release
 	 ********************************************************************************************/
 	protected onInstantiate(): void
 	{
-
-	};
+	}
 
 	protected onDestroyInstance(): void
 	{
-
-	};
+	}
 
 	protected getConnection(config: IMysqlPoolConfig): promiseMysql.Pool
 	{
@@ -94,16 +92,16 @@ export class CMysqlConnect extends CSingleton
 	 ********************************************************************************************/
 	public dataDB(server = CMysqlConst.Master): promiseMysql.Pool
 	{
-		const db: string = (server === CMysqlConst.Master) ? "m_dataMaster" : "m_dataSlave";
+		let pool: promiseMysql.Pool = (server === CMysqlConst.Master) ? this.m_dataMaster : this.m_dataSlave;
 
-		if (! this[db]) {
+		if (! pool) {
 			const dbInfo: IMysqlPoolConfig = (server === CMysqlConst.Master)
 				? CConfig.Env.Mysql.DataMaster
 				: CConfig.Env.Mysql.DataSlave;
-			this[db] = this.getConnection(dbInfo);
+			pool = this.getConnection(dbInfo);
 		}
 
-		return this[db];
+		return pool;
 	}
 
 	/********************************************************************************************
@@ -111,34 +109,32 @@ export class CMysqlConnect extends CSingleton
 	 ********************************************************************************************/
 	public commonDB(server = CMysqlConst.Master): promiseMysql.Pool
 	{
-		const db: string = (server === CMysqlConst.Master) ? "m_commonMaster" : "m_commonSlave";
+		let pool: promiseMysql.Pool = (server === CMysqlConst.Master) ? this.m_commonMaster : this.m_commonSlave;
 
-		if (! this[db]) {
+		if (! pool) {
 			const dbInfo: IMysqlPoolConfig = (server === CMysqlConst.Master)
 				? CConfig.Env.Mysql.CommonMaster
 				: CConfig.Env.Mysql.CommonSlave;
-			this[db] = this.getConnection(dbInfo);
+			pool = this.getConnection(dbInfo);
 		}
 
-		return this[db];
+		return pool;
 	}
 
 	/********************************************************************************************
 	 * database.game
 	 ********************************************************************************************/
-	public userDB(shard: string, server = CMysqlConst.Master): promiseMysql.Pool
+	public userDB(shard: number, server = CMysqlConst.Master): promiseMysql.Pool
 	{
-		const db: string = (server === CMysqlConst.Master) ? "m_useMaster" : "m_userSlave";
+		const poolObject: Map<number, promiseMysql.Pool> = (server === CMysqlConst.Master) ? this.m_useMaster : this.m_userSlave;
 
-		if (this[db] === null) this[db] = {};
-
-		if (! this[db][shard]) {
+		if (! poolObject.get(shard)) {
 			const dbInfo: IMysqlPoolConfig = (server === CMysqlConst.Master)
 				? CConfig.Env.Mysql.UserMaster[shard]
 				: CConfig.Env.Mysql.UserSlave[shard];
-			this[db][shard] = this.getConnection(dbInfo);
+			poolObject.set(shard, this.getConnection(dbInfo));
 		}
 
-		return this[db][shard];
+		return poolObject.get(shard);
 	}
 }

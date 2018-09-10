@@ -9,7 +9,7 @@ import {CStopWatch}     from "../time/CStopWatch";
 // delegate
 export interface IOnUpdate
 {
-	(deltaTime: number): void
+	(deltaTime: number): void;
 }
 
 export class CSchedulerConst
@@ -23,7 +23,7 @@ export class CSchedulerConst
 	{
 		public static System: number    = Number.MAX_VALUE;
 		public static Contents: number  = 0;
-	}
+	};
 }
 
 export class CScheduler extends CSingleton

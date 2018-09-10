@@ -76,10 +76,10 @@ export class CRedisSession implements IPoolAbleObject
 	 ********************************************************************************************/
 	protected static getSessionIndexKey(uuid: number): string
 	{
-		return "{UUID:" + uuid + "}:SESSION"
+		return "{UUID:" + uuid + "}:SESSION";
 	}
 
-	protected static getSessionHashKey(session): string
+	protected static getSessionHashKey(session: string): string
 	{
 		return "{SESSION:" + session + "}";
 	}
@@ -200,7 +200,6 @@ export class CRedisSession implements IPoolAbleObject
 
 	public onAlloc(): void
 	{
-
 	}
 
 	public onFree(): void

@@ -81,16 +81,16 @@ export class CTime
 			}
 
 			// public static readonly Array: number[] = [CTime.Zone.Offset.UTC, CTime.Zone.Offset.KR, CTime.Zone.Offset.JP, CTime.Zone.Offset.CN, CTime.Zone.Offset.ID, CTime.Zone.Offset.TH, CTime.Zone.Offset.VN, CTime.Zone.Offset.RU, CTime.Zone.Offset.ES, CTime.Zone.Offset.FR, CTime.Zone.Offset.DE, CTime.Zone.Offset.PT, CTime.Zone.Offset.NL, CTime.Zone.Offset.IT, CTime.Zone.Offset.US];
-		}
+		};
 	};
 
 	public static Util = class
 	{
 		protected  static getUTCTime(): number
 		{
-            // const now: Date = new Date();
-            // const timezone: number = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
-            // return now.setTime(timezone);
+			// const now: Date = new Date();
+			// const timezone: number = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
+			// return now.setTime(timezone);
 			return Date.now();
 		}
 
@@ -108,5 +108,5 @@ export class CTime
 		{
 			return (date - (date % CTime.Milliseconds.Day) + CTime.Milliseconds.Day) + CTime.Zone.Offset.get(zone);
 		}
-	}
+	};
 }

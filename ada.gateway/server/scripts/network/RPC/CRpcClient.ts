@@ -7,7 +7,7 @@ const RPCClient = require("jsonrpc-node").TCP.Client;
 
 export class CRPCClient extends CSingleton
 {
-	protected m_socket: Object = {};
+	protected m_socket: any = {};
 
 	/********************************************************************************************
 	 * abstract

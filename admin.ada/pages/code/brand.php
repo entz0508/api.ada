@@ -19,20 +19,29 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                 $wherequery = null;
                 if(isset($_GET["sv"])) {
                     switch ($_GET["st"]) {
-                        case "SIGNUP_ID" : $wherequery = " and a.SIGNUP_ID like \"%".$_GET["sv"]."%\""; break;	// 로그인이메일
-						case "USERNAME" : $wherequery = " and a.USERNAME like \"%".$_GET["sv"]."%\""; break;		// 이름
-						case "ACCOUNT_ID" : $wherequery = " and a.ACCOUNT_ID=".$_GET["sv"].""; break;				// 회원번호
+                        //case "SIGNUP_ID" : $wherequery = " and a.SIGNUP_ID like \"%".$_GET["sv"]."%\""; break;	// 로그인이메일
+						//case "USERNAME" : $wherequery = " and a.USERNAME like \"%".$_GET["sv"]."%\""; break;		// 이름
+						//case "ACCOUNT_ID" : $wherequery = " and a.ACCOUNT_ID=".$_GET["sv"].""; break;				// 회원번호
                         default : $wherequery = ""; break;
                     }
                     //$wherequery = " and ".$_GET["st"]."=\"".$_GET["sv"]."\"";
                 }
                 
                 //echo "<br/>".$wherequery;
-				$sql = 'select count(a.ACCOUNT_ID) as cnt
+                /*
+                $sql = 'select count(a.ACCOUNT_ID) as cnt
 							from account_tb a
 							inner join account_leaved_tb alt on a.ACCOUNT_ID = alt.ACCOUNT_ID
 							where 1=1'.$wherequery;
-                //echo "<br/>".$sql;
+                */
+                $sql = 'select count(BRAND_ID) as cnt
+                            from ada_item_db.brand_tb
+                            where 1=1'.$wherequery;
+                            
+				
+                // echo "<br/>".$sql;
+
+
 				$result = $db->query($sql);
 				$row = $result->fetch_assoc();
 				$allPost = $row['cnt'];
@@ -90,13 +99,20 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
 						<li class="paginate_button next"><a href="javascript:GetReport(' . $allPage . ')">마지막</a></li>';
 					}
 					$currentLimit = ($onePage * $page) - $onePage;
-					$sqlLimit = ' limit ' . $currentLimit . ', ' . $onePage;
+                    $sqlLimit = ' limit ' . $currentLimit . ', ' . $onePage;
+                    
+                    $sql = 'select BRAND_ID, BRAND_NAME, DESCRIPTION, BRAND_URL, BRAND_IMAGE, THUM_IMAGE, GENDER, SORT_ID, STATE 
+                                from ada_item_db.brand_tb
+                                where 1=1 '. $wherequery.'
+                                order by BRAND_ID desc ' . $sqlLimit;
 
+                    /* 
 					$sql = 'select a.ACCOUNT_ID,a.SIGNUP_ID,a.EMAIL,a.USERNAME,a.SIGNUP_PATH,a.PROFILE_IMAGE,a.DELETED,a.REG_DATETIME 
                                 from account_tb a 
 								inner join account_leaved_tb alt on a.ACCOUNT_ID = alt.ACCOUNT_ID
                                 where 1=1 '. $wherequery.'
                                 order by a.REG_DATETIME desc ' . $sqlLimit;
+                    */
                     //echo "<br/>".$sql;
 					$result = $db->query($sql);
 				}
@@ -104,19 +120,19 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                 <div  id="reportList" >
                 <section class="panel">
                     <header class="panel-heading">
-                                    Account List &nbsp;&nbsp;&nbsp;[ <?=$page?>/ <?=$allPage?> ]
+                                    Brand List &nbsp;&nbsp;&nbsp;[ <?=$page?>/ <?=$allPage?> ]
                     </header>
                     <table class="table table-striped table-advance table-hover">
                         <tbody>
                             <tr>
-                                <th>ACCOUNT_ID</th>
-                                <th>SIGNUP_ID</th>
-                                <th>EMAIL</th>
-                                <th>USERNAME</th>
-                                <th>SIGNUP_PATH</th>
-                                <th>PROFILE_IMAGE</th>
-								<th>DELETED</th>
-								<th>REG_DATETIME</th>
+                                <th>BRAND_ID</th>
+                                <th>BRAND_NAME</th>
+                                <th>BRAND_URL</th>
+                                <th>BRAND_IMAGE</th>
+                                <th>THUM_IMAGE</th>
+                                <th>GENDER</th>
+								<th>SORT_ID</th>
+								<th>STATE</th>
                             </tr>
                             <?
                             if($allPost <= 0)
@@ -127,16 +143,17 @@ if(!isset($_SESSION['user_login']) || !isset($_SESSION['user_name'])) {
                             }else{
                             while($row = $result->fetch_assoc())
                             {
+                                // BRAND_ID, BRAND_NAME, DESCRIPTION, BRAND_URL, BRAND_IMAGE, THUM_IMAGE, GENDER, SORT_ID, STATE 
                             ?>
                             <tr>
-                                <td><?=$row['ACCOUNT_ID']?></td>
-                                <td><?=$row['SIGNUP_ID']?></td>
-                                <td><?=$row['EMAIL']?></td>
-                                <td><?=$row['USERNAME']?></td>
-                                <td><?=$row['SIGNUP_PATH']?></td>
-                                <td><?=$row['PROFILE_IMAGE']?></td>
-								<td><?=$row['DELETED']?></td>
-								<td><?=$row['REG_DATETIME']?></td>
+                                <td><?=$row['BRAND_ID']?></td>
+                                <td><?=$row['BRAND_NAME']?></td>
+                                <td><?=$row['BRAND_URL']?></td>
+                                <td><?=$row['BRAND_IMAGE']?></td>
+                                <td><?=$row['THUM_IMAGE']?></td>
+                                <td><?=$row['GENDER']?></td>
+								<td><?=$row['SORT_ID']?></td>
+								<td><?=$row['STATE']?></td>
                             </tr>
                             <?
                         }

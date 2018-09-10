@@ -13,7 +13,7 @@ export abstract class CRedisLookup
 
 	protected abstract makeLookupData(score: number, member: string): Object;
 
-	protected async makeLookupDataList(data: string[]): Promise<Object[]>
+	protected async makeLookupDataList(data: any): Promise<Object[]>
 	{
 		const results: any[] = [];
 

@@ -3,7 +3,7 @@
 // delegate
 export interface IBroadcastReceiver
 {
-	(args?: Object[] | any): Promise<void>
+	(args?: Object[] | any): Promise<void>;
 }
 
 export class CBroadcastReceiver
@@ -27,12 +27,10 @@ export class CBroadcastReceiver
 
 	/** unimplemented */ private clear(): void
 	{
-
 	}
 
 	/** unimplemented */ private invoke(args: Object[]): void
 	{
-
 	}
 
 	/** unimplemented */ private has(receiver: IBroadcastReceiver): boolean

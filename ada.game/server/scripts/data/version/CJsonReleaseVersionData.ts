@@ -41,7 +41,7 @@ export class CJsonReleaseVersionData implements IPoolAbleObject
 			[CDataConst.Keys.URL]           : this.m_url,
 			[CDataConst.Keys.RegistTime]    : this.m_registTime,
 			[CDataConst.Keys.Description]   : this.m_updateTime
-		}
+		};
 	}
 
 	public get versionCode(): number
@@ -76,7 +76,7 @@ export class CJsonReleaseVersionData implements IPoolAbleObject
 
 	public static makeUrl(host: string, path: string, version: number, extension: string = ".zip"): string
 	{
-		return Path.join(host, path, "" + version) + ".zip"
+		return Path.join(host, path, "" + version) + ".zip";
 	}
 
 	/********************************************************************************************
@@ -154,7 +154,6 @@ export class CJsonReleaseVersionData implements IPoolAbleObject
 
 	public onAlloc(): void
 	{
-
 	}
 
 	public onFree(): void

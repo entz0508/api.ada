@@ -9,5 +9,5 @@ export class CDataConst
 
 		public static RegistTime: string        = "registTime";
 		public static UpdateTime: string        = "updateTime";
-	}
+	};
 }

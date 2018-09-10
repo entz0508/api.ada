@@ -2,7 +2,7 @@
 
 export interface IPoolAbleObject
 {
-	init(...args): boolean;
+	init(...args: any[]): boolean;
 
 	onAlloc(): void;
 	onFree(): void;

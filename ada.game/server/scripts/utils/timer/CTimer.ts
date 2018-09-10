@@ -105,7 +105,7 @@ export class CTimer extends CSingleton
 			CDebug.assert(false, "out of range(RemoveTimerAt) (%d)", index);
 		}
 
-		this.m_timerTask.removeElementAtIndex(index)        // remove
+		this.m_timerTask.removeElementAtIndex(index);        // remove
 	}
 
 	public removeTimerBy(key: string): void

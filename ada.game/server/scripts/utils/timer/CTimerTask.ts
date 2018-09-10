@@ -3,7 +3,7 @@
 // delegate
 export interface IOnTimeEnded
 {
-	(): void
+	(): void;
 }
 
 export class CTimerTask

@@ -31,7 +31,7 @@ declare module "redis"
 
 		hexistsAsync(key: string, field: string): Promise<number>;
 
-		hgetAsync(key: string, field: string): Promise<string>
+		hgetAsync(key: string, field: string): Promise<string>;
 
 		hgetallAsync(key: string): Promise<{ [key: string]: string }>;
 
@@ -89,12 +89,10 @@ export class CRedisConnect extends CSingleton
 	 ********************************************************************************************/
 	public onInstantiate(): void
 	{
-
 	}
 
 	public onDestroyInstance(): void
 	{
-
 	}
 
 	/********************************************************************************************
@@ -156,7 +154,7 @@ export class CRedisConnect extends CSingleton
 				CConfig.Env.RedisMaster.Port,
 				CConfig.Env.RedisMaster.Database,
 				CConfig.Env.RedisMaster.Password
-			)
+			);
 		}
 
 		this.m_pubInstance.on("error", (error) => {
@@ -174,7 +172,7 @@ export class CRedisConnect extends CSingleton
 				CConfig.Env.RedisMaster.Port,
 				CConfig.Env.RedisMaster.Database,
 				CConfig.Env.RedisMaster.Password
-			)
+			);
 		}
 
 		this.m_subInstance.on("error", (error) => {

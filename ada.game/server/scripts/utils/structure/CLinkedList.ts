@@ -19,7 +19,6 @@ export class CLinkedList<T>
 
 	constructor()
 	{
-
 	}
 
 	public add(item: T, index?: number): boolean
@@ -50,7 +49,7 @@ export class CLinkedList<T>
 		}
 		else {
 			const prev = this.nodeAtIndex(index - 1);
-			if (prev == null) {
+			if (prev === null) {
 				return false;
 			}
 			newNode.next = prev.next;
@@ -123,7 +122,7 @@ export class CLinkedList<T>
 		while (currentNode !== null) {
 			if (equalsF(currentNode.element, item)) {
 
-				if (previous == null) { // currentNode is the first node
+				if (previous === null) { // currentNode is the first node
 					this.m_firstNode = currentNode.next;
 					if (currentNode === this.m_lastNode) {
 						this.m_lastNode = null;
@@ -271,7 +270,7 @@ export class CLinkedList<T>
 			return this.m_lastNode;
 		}
 		let node = this.m_firstNode;
-		for (let i = 0; i < index && node != null; i++) {
+		for (let i = 0; i < index && node !== null; i++) {
 			node = node.next;
 		}
 		return node;

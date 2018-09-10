@@ -131,7 +131,7 @@ export class CBSTreeKV<K, V extends K>
 
 	public toArray(): V[]
 	{
-		const array: Array<V> = [];
+		const array: V[] = [];
 		this.inorderTraversal(function (element: V): boolean {
 			array.push(element);
 			return true;
@@ -214,7 +214,7 @@ export class CBSTreeKV<K, V extends K>
 			queue.enqueue(node);
 		}
 		node = queue.dequeue() || null;
-		while (node != null) {
+		while (node !== null) {
 			if (callback(node.element) === false) {
 				return;
 			}
@@ -264,7 +264,7 @@ export class CBSTreeKV<K, V extends K>
 	private minimumAux(node: BSTreeNode<V> | null): BSTreeNode<V> | null;
 	private minimumAux(node: BSTreeNode<V> | null): BSTreeNode<V> | null
 	{
-		while (node != null && node.leftCh !== null) {
+		while (node !== null && node.leftCh !== null) {
 			node = node.leftCh;
 		}
 		return node;
@@ -274,7 +274,7 @@ export class CBSTreeKV<K, V extends K>
 	private maximumAux(node: BSTreeNode<V> | null): BSTreeNode<V> | null;
 	private maximumAux(node: BSTreeNode<V> | null): BSTreeNode<V> | null
 	{
-		while (node != null && node.rightCh !== null) {
+		while (node !== null && node.rightCh !== null) {
 			node = node.rightCh;
 		}
 		return node;

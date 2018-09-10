@@ -19,10 +19,10 @@ export interface FlatTreeNode
 export class CMultiRootTree
 {
 
-	private m_rootIds: Array<string>;
-	private m_nodes: { [id: string]: Array<string> };
+	private m_rootIds: string[];
+	private m_nodes: { [id: string]: string[] };
 
-	constructor(rootIds: Array<string> = [], nodes: { [id: string]: Array<string> } = {})
+	constructor(rootIds: string[] = [], nodes: { [id: string]: string[] } = {})
 	{
 		this.m_rootIds = rootIds;
 		this.m_nodes = nodes;
@@ -65,7 +65,7 @@ export class CMultiRootTree
 
 	getNodes()
 	{
-		const clone: { [id: string]: Array<string> } = {};
+		const clone: { [id: string]: string[] } = {};
 		for (const nodeKey in this.m_nodes) {
 			if (this.m_nodes.hasOwnProperty(nodeKey)) {
 				clone[nodeKey] = this.m_nodes[nodeKey].slice();
@@ -88,10 +88,10 @@ export class CMultiRootTree
 		return this.getObject();
 	}
 
-	flatten(): Array<FlatTreeNode>
+	flatten(): FlatTreeNode[]
 	{
 		const _this = this;
-		const extraPropsObject: Array<FlatTreeNode> = [];
+		const extraPropsObject: FlatTreeNode[] = [];
 
 		for (let i = 0; i < this.m_rootIds.length; i++) {
 			const rootId = this.m_rootIds[i];
@@ -121,7 +121,7 @@ export class CMultiRootTree
 			}
 		}
 
-		function traverse(startId: string, nodes: { [id: string]: Array<string> }, returnArray: Array<any>, level = 0)
+		function traverse(startId: string, nodes: { [id: string]: string[] }, returnArray: any[], level = 0)
 		{
 			if (!startId || !nodes || !returnArray || !nodes[startId]) {
 				return;
@@ -305,8 +305,6 @@ export class CMultiRootTree
 
 				if (targetRootIndex > sourceRootIndex) {
 					targetRootIndex--;
-				} else {
-
 				}
 
 				switch (direction) {
@@ -424,7 +422,7 @@ export class CMultiRootTree
 		}
 	}
 
-	private swapArrayElements(arr: Array<any>, indexA: number, indexB: number)
+	private swapArrayElements(arr: any[], indexA: number, indexB: number)
 	{
 		const temp = arr[indexA];
 		arr[indexA] = arr[indexB];
@@ -442,7 +440,7 @@ export class CMultiRootTree
 
 	private nodeAndSubNodesDelete(nodeKey: string)
 	{
-		const toDeleteLater: Array<string> = [];
+		const toDeleteLater: string[] = [];
 		for (let i = 0; i < this.m_nodes[nodeKey].length; i++) {
 			const id = this.m_nodes[nodeKey][i];
 			this.nodeAndSubNodesDelete(id);

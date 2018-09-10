@@ -6,7 +6,7 @@ import {CDictionary} from './CDictionary';
 
 export class CMultiDictionary<K, V>
 {
-	private m_dict: CDictionary<K, Array<V>>;
+	private m_dict: CDictionary<K, V[]>;
 
 	private m_equalsF: util.IEqualsFunction<V>;
 
@@ -14,7 +14,7 @@ export class CMultiDictionary<K, V>
 
 	constructor(toStrFunction?: (key: K) => string, valuesEqualsFunction?: util.IEqualsFunction<V>, allowDuplicateValues = false)
 	{
-		this.m_dict = new CDictionary<K, Array<V>>(toStrFunction);
+		this.m_dict = new CDictionary<K, V[]>(toStrFunction);
 		this.m_equalsF = valuesEqualsFunction || util.defaultEquals;
 		this.m_allowDuplicate = allowDuplicateValues;
 	}
@@ -72,7 +72,7 @@ export class CMultiDictionary<K, V>
 	public values(): V[]
 	{
 		const values = this.m_dict.values();
-		const array: Array<V> = [];
+		const array: V[] = [];
 		for (const v of values) {
 			for (const w of v) {
 				array.push(w);

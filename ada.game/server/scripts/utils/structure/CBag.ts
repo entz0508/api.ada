@@ -80,7 +80,7 @@ export class CBag<T>
 
 	public toArray(): T[]
 	{
-		const a: Array<T> = [];
+		const a: T[] = [];
 		const values = this.m_dictionary.values();
 		for (const node of values) {
 			const element = node.value;

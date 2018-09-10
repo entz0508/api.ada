@@ -68,12 +68,12 @@ export class CDebug
 	/********************************************************************************************
 	 * Info
 	 ********************************************************************************************/
-	public static logInfo(message): void
+	public static logInfo(message: string): void
 	{
 		this.winstonLog.info(message);
 	}
 
-	public static logInfoFormat(format, ...args): void
+	public static logInfoFormat(format: string, ...args: any[]): void
 	{
 		this.winstonLog.info(format, ...args);
 	}
@@ -81,12 +81,12 @@ export class CDebug
 	/********************************************************************************************
 	 * Warning
 	 ********************************************************************************************/
-	public static logWarning(message): void
+	public static logWarning(message: string): void
 	{
 		this.winstonLog.warn(message);
 	}
 
-	public static logWarningFormat(format, ...args): void
+	public static logWarningFormat(format: string, ...args: any[]): void
 	{
 		this.winstonLog.warn(format, ...args);
 	}
@@ -94,12 +94,12 @@ export class CDebug
 	/********************************************************************************************
 	 * Error
 	 ********************************************************************************************/
-	public static logError(message): void
+	public static logError(message: string): void
 	{
 		this.winstonError.error(message);
 	}
 
-	public static logErrorFormat(format, ...args): void
+	public static logErrorFormat(format: string, ...args: any[]): void
 	{
 		this.winstonError.error(format, ...args);
 	}
@@ -107,12 +107,12 @@ export class CDebug
 	/********************************************************************************************
 	 * Debug
 	 ********************************************************************************************/
-	public static logDebug(message): void
+	public static logDebug(message: string): void
 	{
 		this.winstonDebug.debug(message);
 	}
 
-	public static logDebugFormat(format, ...args): void
+	public static logDebugFormat(format: string, ...args: any[]): void
 	{
 		this.winstonDebug.debug(format, ...args);
 	}
@@ -120,7 +120,7 @@ export class CDebug
 	/********************************************************************************************
 	 * Assert
 	 ********************************************************************************************/
-	public static assert(condition = this.DEFAULT_CONDITION, format, ...args): void
+	public static assert(condition = this.DEFAULT_CONDITION, format: string, ...args: any[]): void
 	{
 		assert(condition, util.format(format, ...args));
 	}

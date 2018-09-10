@@ -6,7 +6,7 @@ const RPCServer = require("jsonrpc-node").TCP.Server;
 
 export class CRpcServer extends CSingleton
 {
-	protected m_socket: Object = {};
+	protected m_socket: any = {};
 
 	/********************************************************************************************
 	 * abstract
@@ -37,7 +37,7 @@ export class CRpcServer extends CSingleton
 		}
 	}
 
-	protected async packetHandling(argument: object[], callback): Promise<void>
+	protected async packetHandling(argument: object[], callback: Function): Promise<void>
 	{
 		const options: object   = argument[0];
 		const commands: object  = argument[1];

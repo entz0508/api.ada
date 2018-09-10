@@ -4,8 +4,8 @@ import {CNetworkConst}  from "../network/CNetworkConst";
 
 export interface ICommandResult
 {
-	commandStatus: string;
-	resultData: string;
+	commandStatus: number;
+	commandResult: Object;
 	failedMessage: string;
 }
 
@@ -15,9 +15,9 @@ export class CHandlerResult
 	{
 		const commandResult: ICommandResult = {} as any;
 
-		commandResult[CNetworkConst.Keys.CommandStatus] = commandStatus;
-		commandResult[CNetworkConst.Keys.CommandResult]    = resultData;
-		commandResult[CNetworkConst.Keys.FailedMessage] = failedMessage;
+		commandResult.commandStatus = commandStatus;
+		commandResult.commandResult = resultData;
+		commandResult.failedMessage = failedMessage;
 
 		return commandResult;
 	}

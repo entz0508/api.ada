@@ -49,6 +49,6 @@ export class CSchedulerTask
 
 	public get priority(): number
 	{
-		return this.m_priority
+		return this.m_priority;
 	}
 }

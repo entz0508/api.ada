@@ -38,7 +38,7 @@ export class CPlatformGateway extends CRoute
 				"uuid"      : CSession.uuid,
 			};
 
-			RPCSocket.call("packet", [header, CRequest.requestCommand], (err, result: INetworkPacketReader.PacketExecuteResults) =>
+			RPCSocket.call("packet", [header, CRequest.requestCommand], (err: string, result: INetworkPacketReader.PacketExecuteResults) =>
 	 		{
 				if (result) {
 					CResponse.commandStatus = result.commandStatus;

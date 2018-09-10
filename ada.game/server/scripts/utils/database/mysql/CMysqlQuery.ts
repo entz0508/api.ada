@@ -74,7 +74,6 @@ export class CMysqlQuery implements IPoolAbleObject
 
 	public onAlloc(): void
 	{
-
 	}
 
 	public onFree(): void

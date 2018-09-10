@@ -71,7 +71,7 @@ export class CGameGateway extends CRoute
 				"shard"     : CSession.shard
 			};
 
-			RPCSocket.call("packet", [header, CRequest.requestCommand], (err, result: INetworkPacketReader.PacketExecuteResults) =>
+			RPCSocket.call("packet", [header, CRequest.requestCommand], (err: string, result: INetworkPacketReader.PacketExecuteResults) =>
 			{
 				CResponse.commandStatus = result.commandStatus;
 				CResponse.commandResult = result.commandResult;

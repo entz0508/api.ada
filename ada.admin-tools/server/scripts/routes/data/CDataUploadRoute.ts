@@ -39,7 +39,7 @@ export class CDataUploadRoute extends CRoute
 					return this.response(req, res, exception.stack);
 				}
 			})
-			.post(async (req: Request, res: Response, next: NextFunction): Promise<Response> =>
+			.post(async (req: any, res: Response, next: NextFunction): Promise<Response> =>
 			{
 				try {
 					const response: Object          = {};
@@ -98,12 +98,12 @@ export class CDataUploadRoute extends CRoute
 			.delete(async (req: Request, res: Response, next: NextFunction): Promise<Response> =>
 			{
 				try {
-					const response: {} = {"state": true};
+					const response: any = {"state": true};
 
 					const versionCode: number = CJson.safeIntegerParse(req.body, "versionCode");
 
 					const CJsonReleaseVersion = await CJsonReleaseVersionData.getDataPool();
-					if (CJsonReleaseVersion != null && CJsonReleaseVersion.versionCode === versionCode) {
+					if (CJsonReleaseVersion !== null && CJsonReleaseVersion.versionCode === versionCode) {
 						// skip;
 						response["state"] = false;
 					}

@@ -17,8 +17,8 @@ export abstract class CSingleton
 	{
 		if (this.ms_instance === null) {
 			this.ms_instance = new instance();
-            this.ms_instance.onInstantiate();   // on instantiated
-        }
+			this.ms_instance.onInstantiate();   // on instantiated
+		}
 
 		return this.ms_instance;
 	}

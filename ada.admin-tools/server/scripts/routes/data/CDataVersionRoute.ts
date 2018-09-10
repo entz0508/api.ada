@@ -23,7 +23,7 @@ export class CDataVersionRoute extends CRoute
 					let response: Object = {};
 
 					const CJsonReleaseVersion = await CJsonReleaseVersionData.getDataPool();
-					if (CJsonReleaseVersion != null) {
+					if (CJsonReleaseVersion !== null) {
 						response = CJsonReleaseVersion.json();
 						CJsonReleaseVersion.release();
 					}

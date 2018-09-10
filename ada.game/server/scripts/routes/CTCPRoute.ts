@@ -3,7 +3,6 @@
 import {CNetworkPacketReader, INetworkPacketReader} from "../network/CNetworkPacketReader";
 import {CExecuteHandler}                            from "../commands/CExecuteHandler";
 import {ICommandResult}                             from "../commands/CHandlerResult";
-import {CNetworkConst}                              from "../network/CNetworkConst";
 import {INetworkPacketWriter}                       from "../network/CNetworkPacketWriter";
 import {CDebug}                                     from "../utils/CDebug";
 
@@ -22,11 +21,11 @@ class CTCPRoute
 
 			const JSONResult: ICommandResult = await CExecuteHandler.instance(CExecuteHandler).executeCommand(request.url, request.uuid, request.shard, request.commands);
 
-			response[CNetworkConst.Keys.CommandStatus]  = JSONResult[CNetworkConst.Keys.CommandStatus];
-			response[CNetworkConst.Keys.CommandResult]  = JSONResult[CNetworkConst.Keys.CommandResult];
+			response.commandStatus  = JSONResult.commandStatus;
+			response.commandResult  = JSONResult.commandResult;
 
 			if (JSONResult.failedMessage !== "") {
-				response[CNetworkConst.Keys.FailedMessage] = JSONResult.failedMessage;
+				response.failedMessage = JSONResult.failedMessage;
 			}
 
 			CDebug.logDebugFormat("<<------ Response: %j", response);
@@ -34,7 +33,6 @@ class CTCPRoute
 			callback(response);
 		}
 		catch (exception) {
-
 		}
 	}
 }

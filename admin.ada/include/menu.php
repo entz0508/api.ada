@@ -14,7 +14,7 @@ $path1 = get_dirname(3);
 $path2 = get_dirname(4);
 ?>
 <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION
+        <li class="header">MAIN NAVIGATION <?=$path2 ?>
 		</li>
           <li class="treeview <?=($path1 == "account")?"active":"" ?>">
               <a href="#">
@@ -29,7 +29,7 @@ $path2 = get_dirname(4);
               </ul>
           </li>
 
-          <li class="treeview <?=($path1 == "channel")?"active":"" ?>">
+          <li class="treeview <?=($path1 == "code")?"active":"" ?>">
               <a href="#">
                   <i class="fa fa-newspaper-o"></i> <span>상품코드관리</span>
                   <span class="pull-right-container">
@@ -37,12 +37,14 @@ $path2 = get_dirname(4);
                   </span>
               </a>
               <ul class="treeview-menu">
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 브렌드관리</a></li>
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 카테고리관리</a></li>
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 색상관리</a></li>
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 패턴관리</a></li>
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 스타일관리</a></li>
-                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/channel/banners.html"><i class="fa fa-circle-o"></i> 컬렉션관리</a></li>
+                  <li <?=($path2 == "brand.html")?"class=\"active\"":"" ?>><a href="/pages/code/brand.html"><i class="fa fa-circle-o"></i> 브렌드관리</a></li>
+                  <li <?=($path2 == "banners.html")?"class=\"active\"":"" ?>><a href="/pages/code/banners.html"><i class="fa fa-circle-o"></i> 카테고리관리</a></li>
+                  <li <?=($path2 == "itemcode_1.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_1.html"><i class="fa fa-circle-o"></i> 색상관리</a></li>
+                  <li <?=($path2 == "itemcode_2.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_2.html"><i class="fa fa-circle-o"></i> 재질관리</a></li>
+                  <li <?=($path2 == "itemcode_3.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_3.html"><i class="fa fa-circle-o"></i> 패턴관리</a></li>
+                  <li <?=($path2 == "itemcode_4.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_4.html"><i class="fa fa-circle-o"></i> 스타일관리</a></li>
+                  <li <?=($path2 == "itemcode_9.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_9.html"><i class="fa fa-circle-o"></i> 파츠관리</a></li>
+                  <li <?=($path2 == "itemcode_1.html")?"class=\"active\"":"" ?>><a href="/pages/code/itemcode_1.html"><i class="fa fa-circle-o"></i> 컬렉션관리</a></li>
               </ul>
           </li>
 

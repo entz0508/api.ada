@@ -5,8 +5,8 @@ import * as md5    from "md5";
 
 export interface IEncrypted
 {
-	content: string,
-	tag: Buffer
+	content: string;
+	tag: Buffer;
 }
 
 export class CCrypto

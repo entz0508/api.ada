@@ -5,8 +5,8 @@ export namespace INetworkPacketWriter
 	export interface Response
 	{
 		commandStatus: number;
+		commandResult: Object;
 		failedMessage?: string;
-		resultData: object;
 	}
 
 	export interface GetUser

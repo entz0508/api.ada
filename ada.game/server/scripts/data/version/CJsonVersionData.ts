@@ -40,7 +40,7 @@ export class CJsonVersionData implements IPoolAbleObject
 			[CDataConst.Keys.Registrant]  : this.m_registrant,
 			[CDataConst.Keys.Description] : this.m_description,
 			[CDataConst.Keys.RegistTime]  : this.m_registTime
-		}
+		};
 	}
 
 	public get versionCode(): number
@@ -154,7 +154,6 @@ export class CJsonVersionData implements IPoolAbleObject
 
 	public onAlloc(): void
 	{
-
 	}
 
 	public onFree(): void

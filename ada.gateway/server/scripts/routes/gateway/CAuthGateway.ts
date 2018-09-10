@@ -37,7 +37,7 @@ export class CAuthGateway extends CRoute
 					"url"       : req.originalUrl,
 				};
 
-				RPCSocket.call("packet", [header, CRequest.requestCommand], async (err, result: INetworkPacketReader.PacketExecuteResults) =>
+				RPCSocket.call("packet", [header, CRequest.requestCommand], async (err: string, result: INetworkPacketReader.PacketExecuteResults) =>
 				{
 					if (! result) {
 						CResponse.commandStatus = CNetworkConst.PacketStatus.Fail;

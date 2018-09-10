@@ -1,6 +1,7 @@
 "use strict";
 
 import * as JWT from "jsonwebtoken";
+import {CDebug} from "../CDebug";
 
 export class CJsonWebToken
 {
@@ -63,7 +64,7 @@ export class CJsonWebToken
 				 */
 			}
 
-			console.error(exception);
+			CDebug.logError(exception);
 
 			return false;
 		}

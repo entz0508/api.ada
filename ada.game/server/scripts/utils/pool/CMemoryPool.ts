@@ -3,7 +3,6 @@
 import {CQueue}          from "../structure/CQueue";
 import {IPoolAbleObject} from "./IPoolAbleObject";
 import {CConfig}         from "../../config/CConfig";
-import {CDebug}          from "../CDebug";
 
 export class CMemoryPool<T extends IPoolAbleObject>
 {
@@ -13,7 +12,6 @@ export class CMemoryPool<T extends IPoolAbleObject>
 
 	constructor(protected m_instance: new () => T)
 	{
-
 	}
 
 	/********************************************************************************************

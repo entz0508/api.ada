@@ -1,5 +1,5 @@
 <?
-	$database_url = "localhost";
+	$database_url = "localhost";			// 35.194.222.5
 	$database_name = "ada_account_db";
 	$database_id = "fitadadev";
 	$database_pw = "qmffndkzm!!!!";
@@ -13,14 +13,4 @@
 		echo mysql_errno().":";
 		echo mysql_error()."<br>";
 	}
-
-/*
-	$connect=mysqli_connect($database_url,$database_id,$database_pw,$database_name) or die("Mysql Connect Error " . mysqli_error($connect));
-	mysqli_query($connect,"set names euckr");
-
-	if(mysqli_errno($connect)) {
-		echo"Mysqli Connect Error";
-		exit;
-	}
-*/
 ?>
